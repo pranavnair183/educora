@@ -24,7 +24,6 @@ import 'screens/checkout_screen.dart';
 import 'screens/scanner_screen.dart';
 import 'screens/track_order_screen.dart';
 import 'package:flutter/foundation.dart';
-import 'utils/utils.dart';
 
 void main() => runApp(
       DevicePreview(
@@ -104,7 +103,7 @@ class MyApp extends StatelessWidget {
                   bodyText2: TextStyle(fontSize: 8.sp, color: Colors.black, fontWeight: FontWeight.w400),
                   caption: TextStyle(
                     fontSize: 8.sp,
-                    color: AppColorData.secodaryText,
+                    color: Colors.grey,
                   ))),
           initialRoute: '/onboarding',
           routes: {

@@ -66,7 +66,7 @@ class _TrackOrderScreenState extends State<TrackOrderScreen> {
                             AppConstant.estimatedDeliveryTime,
                             style:
                                 Theme.of(context).textTheme.headline6!.copyWith(
-                                      color: AppColorData.secodaryText,
+                                      color: Colors.black12,
                                       fontWeight: FontWeight.w700,
                                     ),
                           ),
@@ -324,7 +324,9 @@ class _TrackOrderScreenState extends State<TrackOrderScreen> {
                           style: Theme.of(context)
                               .textTheme
                               .headline5!
-                              .copyWith(fontWeight: FontWeight.w700),
+                              .copyWith(
+                                  fontWeight: FontWeight.w700,
+                                  color: AppColorData.primaryTxt),
                         ),
                       )),
                 ),

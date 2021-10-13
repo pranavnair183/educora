@@ -234,7 +234,7 @@ class _MyActivityScreenState extends State<MyActivityScreen> {
                                       .textTheme
                                       .headline5!
                                       .copyWith(
-                                        color: AppColorData.secodaryText,
+                                        color: Colors.blue[100],
                                       ),
                                 ),
                                 SizedBox(
@@ -253,7 +253,7 @@ class _MyActivityScreenState extends State<MyActivityScreen> {
                                       .textTheme
                                       .headline5!
                                       .copyWith(
-                                        color: AppColorData.secodaryText,
+                                        color: Colors.blue[100],
                                       ),
                                 ),
                               ],

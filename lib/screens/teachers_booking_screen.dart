@@ -247,10 +247,10 @@ class _TeachersBookingScreenState extends State<TeachersBookingScreen> {
                       child: Text(
                         AppConstant.bookNow,
                         textAlign: TextAlign.center,
-                        style: Theme.of(context)
-                            .textTheme
-                            .headline5!
-                            .copyWith(fontWeight: FontWeight.w700),
+                        style: Theme.of(context).textTheme.headline5!.copyWith(
+                              fontWeight: FontWeight.w700,
+                              color: AppColorData.primaryTxt,
+                            ),
                       ),
                     ),
                   )),

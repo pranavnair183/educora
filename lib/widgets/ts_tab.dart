@@ -82,7 +82,7 @@ class _TsTabState extends State<TsTab> {
                     style: Theme.of(context)
                         .textTheme
                         .bodyText1!
-                        .copyWith(color: AppColorData.secodaryText),
+                        .copyWith(color: Colors.black12),
                   ),
                   SizedBox(
                     height: 2.sp,
@@ -90,7 +90,7 @@ class _TsTabState extends State<TsTab> {
                   Icon(
                     Icons.play_arrow_rounded,
                     size: 25.sp,
-                    color: AppColorData.secodaryText,
+                    color: Colors.black12,
                   )
                 ],
               ),

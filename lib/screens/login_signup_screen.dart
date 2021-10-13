@@ -208,7 +208,10 @@ class _LoginSigninScreenState extends State<LoginSigninScreen> {
                                     style: Theme.of(context)
                                         .textTheme
                                         .headline5!
-                                        .copyWith(fontWeight: FontWeight.w700),
+                                        .copyWith(
+                                          fontWeight: FontWeight.w700,
+                                          color: AppColorData.primaryTxt,
+                                        ),
                                   ),
                                 ),
                               )),
@@ -232,8 +235,8 @@ class _LoginSigninScreenState extends State<LoginSigninScreen> {
                                         .textTheme
                                         .headline6!
                                         .copyWith(
-                                          fontWeight: FontWeight.w400,
-                                          color: AppColorData.secodaryText,
+                                          fontWeight: FontWeight.w500,
+                                          color: AppColorData.textBlack,
                                         ),
                                   ),
                                 ),
@@ -273,7 +276,7 @@ class _LoginSigninScreenState extends State<LoginSigninScreen> {
                                         .textTheme
                                         .headline6!
                                         .copyWith(
-                                          color: AppColorData.secodaryText,
+                                          color: AppColorData.textBlack,
                                         ),
                                   ),
                                 ),
@@ -319,7 +322,9 @@ class _LoginSigninScreenState extends State<LoginSigninScreen> {
                                             .textTheme
                                             .headline5!
                                             .copyWith(
-                                                fontWeight: FontWeight.w700),
+                                              fontWeight: FontWeight.w700,
+                                              color: AppColorData.primaryTxt,
+                                            ),
                                       ),
                                     ),
                                   )),
@@ -369,7 +374,7 @@ class _LoginSigninScreenState extends State<LoginSigninScreen> {
                                         .headline6!
                                         .copyWith(
                                           fontWeight: FontWeight.w400,
-                                          color: AppColorData.secodaryText,
+                                          color: AppColorData.textBlack,
                                         ),
                                   ),
                                 ),
@@ -390,7 +395,7 @@ class _LoginSigninScreenState extends State<LoginSigninScreen> {
                                         .headline6!
                                         .copyWith(
                                           fontWeight: FontWeight.w400,
-                                          color: AppColorData.secodaryText,
+                                          color: AppColorData.textBlack,
                                         ),
                                   ),
                                 ),
@@ -405,7 +410,7 @@ class _LoginSigninScreenState extends State<LoginSigninScreen> {
                                       .headline4!
                                       .copyWith(
                                         fontWeight: FontWeight.w400,
-                                        color: AppColorData.secodaryText,
+                                        color: AppColorData.textBlack,
                                       ),
                                   obscureText: _obscureText,
                                   decoration: InputDecoration(
@@ -434,7 +439,7 @@ class _LoginSigninScreenState extends State<LoginSigninScreen> {
                                         .headline6!
                                         .copyWith(
                                           fontWeight: FontWeight.w400,
-                                          color: AppColorData.secodaryText,
+                                          color: AppColorData.textBlack,
                                         ),
                                   ),
                                 ),
@@ -463,7 +468,9 @@ class _LoginSigninScreenState extends State<LoginSigninScreen> {
                                             .textTheme
                                             .headline5!
                                             .copyWith(
-                                                fontWeight: FontWeight.w700),
+                                              fontWeight: FontWeight.w700,
+                                              color: AppColorData.primaryTxt,
+                                            ),
                                       ),
                                     ),
                                   )),

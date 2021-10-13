@@ -23,7 +23,7 @@ class AppColorData {
   static const Color coursesHeaderBg = Color.fromRGBO(38, 32, 44, 1);
   static const Color homeHeaderBg = Color.fromRGBO(38, 32, 44, 1);
   static const Color loginHeaderBg = Color.fromRGBO(242, 242, 242, 1);
-  static const Color secodaryText = Color.fromRGBO(255, 255, 255, 0.25);
+  static Color secodaryText = Colors.black12;
   static const Color courseTotalTimeBg = Color.fromRGBO(195, 210, 250, 1);
   static const Color paymentSuccessPb1 = Color.fromRGBO(253, 85, 186, 1);
   static const Color paymentSuccessDoneBg1 = Color.fromRGBO(208, 208, 208, 0.1);
@@ -31,6 +31,7 @@ class AppColorData {
   static const Color scannerDoneBg3 = Color.fromRGBO(33, 150, 243, 1);
   static const Color progressCardBg = Color.fromRGBO(244, 247, 250, 1);
   static const Color progressCardTxt = Color.fromRGBO(48, 95, 114, 1);
+  static const Color textBlack = Colors.black;
 
   static const Color buyEbookBtn = Colors.white;
   static Color buyAudioBtn = Colors.blue[50]!;

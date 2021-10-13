@@ -122,9 +122,10 @@ class _ClassBookingScreenState extends State<ClassBookingScreen> {
                       (displayDate != null)
                           ? DateFormat('  d MMMM yyyy').format(displayDate!)
                           : AppConstant.selectADate,
-                      style: Theme.of(context).textTheme.headline6!.copyWith(
-                            color: AppColorData.secodaryText,
-                          ),
+                      style: Theme.of(context)
+                          .textTheme
+                          .headline6!
+                          .copyWith(color: Colors.grey),
                     ),
                   ]),
                 ],
@@ -144,10 +145,10 @@ class _ClassBookingScreenState extends State<ClassBookingScreen> {
                       child: Text(
                         AppConstant.bookNow,
                         textAlign: TextAlign.center,
-                        style: Theme.of(context)
-                            .textTheme
-                            .headline5!
-                            .copyWith(fontWeight: FontWeight.w700),
+                        style: Theme.of(context).textTheme.headline5!.copyWith(
+                              fontWeight: FontWeight.w700,
+                              color: AppColorData.primaryTxt,
+                            ),
                       ),
                     ),
                   )),

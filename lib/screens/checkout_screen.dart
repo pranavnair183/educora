@@ -335,9 +335,11 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                                         .textTheme
                                                         .headline5!
                                                         .copyWith(
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .w700),
+                                                          fontWeight:
+                                                              FontWeight.w700,
+                                                          color: AppColorData
+                                                              .primaryTxt,
+                                                        ),
                                                   ),
                                                 )),
                                           ),
@@ -359,10 +361,11 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                           child: Text(
                             AppConstant.next,
                             textAlign: TextAlign.center,
-                            style: Theme.of(context)
-                                .textTheme
-                                .headline5!
-                                .copyWith(fontWeight: FontWeight.w700),
+                            style:
+                                Theme.of(context).textTheme.headline5!.copyWith(
+                                      fontWeight: FontWeight.w700,
+                                      color: AppColorData.primaryTxt,
+                                    ),
                           ),
                         ),
                       )),

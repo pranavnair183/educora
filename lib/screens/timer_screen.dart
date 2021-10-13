@@ -253,10 +253,10 @@ class _TimerScreenState extends State<TimerScreen> {
                           ? AppConstant.stop
                           : AppConstant.start,
                       textAlign: TextAlign.center,
-                      style: Theme.of(context)
-                          .textTheme
-                          .headline5!
-                          .copyWith(fontWeight: FontWeight.w700),
+                      style: Theme.of(context).textTheme.headline5!.copyWith(
+                            fontWeight: FontWeight.w700,
+                            color: AppColorData.primaryTxt,
+                          ),
                     ),
                   ),
                 )),
