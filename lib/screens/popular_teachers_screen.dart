@@ -5,7 +5,6 @@ import 'package:sizer/sizer.dart';
 import '../widgets/pt_tab.dart';
 
 class PopularTeachersScreen extends StatefulWidget {
-  static String routeName = ViewRouter.popularTeachers;
   const PopularTeachersScreen({Key? key}) : super(key: key);
 
   @override
@@ -19,8 +18,9 @@ class _PopularTeachersScreenState extends State<PopularTeachersScreen> {
       appBar: AppBar(
         toolbarHeight: 10.h,
         leadingWidth: 70.sp,
-        leading: Builder(builder: (context) {
-          return Padding(
+        leading: Builder(
+          builder: (context) {
+            return Padding(
               padding: EdgeInsets.only(top: 3.h),
               child: IconButton(
                 icon: Icon(
@@ -28,11 +28,11 @@ class _PopularTeachersScreenState extends State<PopularTeachersScreen> {
                   size: 5.h,
                   color: Colors.black,
                 ),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-              ));
-        }),
+                onPressed: () => Navigator.of(context).pop(),
+              ),
+            );
+          },
+        ),
         actions: [
           Padding(
               padding: EdgeInsets.only(bottom: 1.h, right: 4.w, top: 3.h),
@@ -44,60 +44,33 @@ class _PopularTeachersScreenState extends State<PopularTeachersScreen> {
           padding: EdgeInsets.only(left: 8.w, right: 8.w, top: 5.h),
           child: Column(
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    AppConstant.popularTeachers,
-                    style: Theme.of(context).textTheme.headline1,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        AppConstant.popularTeachers,
+                        style: Theme.of(context).textTheme.headline1,
+                      ),
+                      SvgPicture.asset(
+                        Resource.ptIcon,
+                        height: 3.5.h,
+                      )
+                    ],
                   ),
-                  SvgPicture.asset(
-                    Resource.ptIcon,
-                    height: 3.5.h,
-                  )
-                ],
-              ),
-              SizedBox(
-                height: 5.h,
-              ),
-              Padding(
-                padding: EdgeInsets.only(top: 2.h),
-                child: const PtTab(
-                  title: AppConstant.adobeXd,
-                  years: '05',
-                  imgPath: Resource.pt1,
-                  isFirst: true,
+                  SizedBox(height: 5.h),
+                ] +
+                List.generate(
+                  5,
+                  (index) => Padding(
+                    padding: EdgeInsets.only(top: 2.h),
+                    child: PtTab(
+                      title: AppConstant.ptList[index]['title'],
+                      years: AppConstant.ptList[index]['years'],
+                      imgPath: AppConstant.ptList[index]['imgPath'],
+                      isFirst: AppConstant.ptList[index]['isFirst'],
+                    ),
+                  ),
                 ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(top: 2.h),
-                child: const PtTab(
-                    title: AppConstant.sketch,
-                    years: '4.5',
-                    imgPath: Resource.pt2),
-              ),
-              Padding(
-                padding: EdgeInsets.only(top: 2.h),
-                child: const PtTab(
-                    title: AppConstant.afterEffects,
-                    years: '3.5',
-                    imgPath: Resource.pt3),
-              ),
-              Padding(
-                padding: EdgeInsets.only(top: 2.h),
-                child: const PtTab(
-                    title: AppConstant.figma,
-                    years: '06',
-                    imgPath: Resource.pt4),
-              ),
-              Padding(
-                padding: EdgeInsets.only(top: 2.h),
-                child: const PtTab(
-                    title: AppConstant.adobePs,
-                    years: '07',
-                    imgPath: Resource.pt5),
-              ),
-            ],
           ),
         ),
       ),

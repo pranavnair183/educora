@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
 class CoursesAppBar extends SliverPersistentHeaderDelegate {
-  final double? expandedHeight;
+  CoursesAppBar({required this.expandedHeight});
 
-  CoursesAppBar({@required this.expandedHeight});
+  final double expandedHeight;
 
   @override
   Widget build(
@@ -21,18 +21,14 @@ class CoursesAppBar extends SliverPersistentHeaderDelegate {
         top: 0 - shrinkOffset,
         child: Column(
           children: [
-            SizedBox(
-              height: 5.h,
-            ),
+            SizedBox(height: 5.h),
             Opacity(
-              opacity: 1 - shrinkOffset / expandedHeight!,
+              opacity: 1 - shrinkOffset / expandedHeight,
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SizedBox(
-                    width: 12.w,
-                  ),
+                  SizedBox(width: 12.w),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -77,9 +73,7 @@ class CoursesAppBar extends SliverPersistentHeaderDelegate {
                       size: 4.h,
                       color: AppColorData.secondaryIcon,
                     ),
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
+                    onPressed: () => Navigator.of(context).pop(),
                   ),
                   Expanded(
                     child: Text(
@@ -106,7 +100,7 @@ class CoursesAppBar extends SliverPersistentHeaderDelegate {
   }
 
   @override
-  double get maxExtent => expandedHeight!;
+  double get maxExtent => expandedHeight;
 
   @override
   double get minExtent => kToolbarHeight + 2.h;

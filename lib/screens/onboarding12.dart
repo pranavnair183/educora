@@ -3,19 +3,20 @@ import 'package:sizer/sizer.dart';
 import "../utils/utils.dart";
 
 class Ob1 extends StatefulWidget {
-  final PageController? changePage;
-  final String? imgPath;
-  final String? title;
-  final String? buttonTxt;
-  final bool? isLast;
-  const Ob1(
-      {Key? key,
-      this.changePage,
-      this.imgPath,
-      this.title,
-      this.buttonTxt,
-      this.isLast})
-      : super(key: key);
+  const Ob1({
+    Key? key,
+    required this.changePage,
+    required this.imgPath,
+    required this.title,
+    required this.buttonTxt,
+    required this.isLast,
+  }) : super(key: key);
+
+  final PageController changePage;
+  final String imgPath;
+  final String title;
+  final String buttonTxt;
+  final bool isLast;
 
   @override
   _Ob1State createState() => _Ob1State();
@@ -51,7 +52,7 @@ class _Ob1State extends State<Ob1> {
                   bottomLeft: Radius.circular(5.h),
                 ),
               ),
-              child: _buildImage(widget.imgPath!, 80.w, 100.h)),
+              child: _buildImage(widget.imgPath, 80.w, 100.h)),
           if (widget.isLast == false)
             Column(
               children: [
@@ -61,7 +62,7 @@ class _Ob1State extends State<Ob1> {
                     children: [
                       Expanded(
                         child: Text(
-                          widget.title!,
+                          widget.title,
                           style:
                               Theme.of(context).textTheme.headline2!.copyWith(
                                     fontWeight: FontWeight.w700,
@@ -109,9 +110,9 @@ class _Ob1State extends State<Ob1> {
                         child: ElevatedButton(
                             onPressed: () {
                               if (widget.buttonTxt == 'Get Started') {
-                                widget.changePage!.jumpToPage(2);
+                                widget.changePage.jumpToPage(2);
                               } else {
-                                widget.changePage!.jumpToPage(1);
+                                widget.changePage.jumpToPage(1);
                               }
                             },
                             style: Theme.of(context)
@@ -137,7 +138,7 @@ class _Ob1State extends State<Ob1> {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text(
-                                      widget.buttonTxt!,
+                                      widget.buttonTxt,
                                       style: Theme.of(context)
                                           .textTheme
                                           .headline6!
@@ -199,47 +200,43 @@ class _Ob1State extends State<Ob1> {
                 ),
                 Padding(
                   padding: EdgeInsets.only(top: 2.h, left: 5.w, right: 5.w),
-                  child: Column(children: [
-                    Row(
-                      children: [
-                        Expanded(
-                          child: ElevatedButton(
-                              onPressed: () {
-                                Navigator.of(context)
-                                    .pushNamed('/login_signin');
-                              },
-                              style:
-                                  Theme.of(context).elevatedButtonTheme.style,
-                              child: Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 3.w),
-                                child: SizedBox(
-                                  width: 70.w,
-                                  child: Text(
-                                    AppConstant.student,
-                                    textAlign: TextAlign.center,
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .headline6!
-                                        .copyWith(
-                                            color: AppColorData.primaryTxt,
-                                            fontWeight: FontWeight.w700),
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          Expanded(
+                            child: ElevatedButton(
+                                onPressed: () => Navigator.of(context)
+                                    .pushNamed('/login_signin'),
+                                style:
+                                    Theme.of(context).elevatedButtonTheme.style,
+                                child: Padding(
+                                  padding:
+                                      EdgeInsets.symmetric(horizontal: 3.w),
+                                  child: SizedBox(
+                                    width: 70.w,
+                                    child: Text(
+                                      AppConstant.student,
+                                      textAlign: TextAlign.center,
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .headline6!
+                                          .copyWith(
+                                              color: AppColorData.primaryTxt,
+                                              fontWeight: FontWeight.w700),
+                                    ),
                                   ),
-                                ),
-                              )),
-                        )
-                      ],
-                    ),
-                    SizedBox(
-                      height: 2.h,
-                    ),
-                    Row(
-                      children: [
-                        Expanded(
-                          child: ElevatedButton(
-                              onPressed: () {
-                                Navigator.of(context)
-                                    .pushNamed('/login_signin');
-                              },
+                                )),
+                          )
+                        ],
+                      ),
+                      SizedBox(height: 2.h),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: ElevatedButton(
+                              onPressed: () => Navigator.of(context)
+                                  .pushNamed('/login_signin'),
                               style: ButtonStyle(
                                 shape: MaterialStateProperty.resolveWith<
                                     OutlinedBorder>(
@@ -266,24 +263,23 @@ class _Ob1State extends State<Ob1> {
                               ),
                               child: Padding(
                                 padding: EdgeInsets.symmetric(horizontal: 3.w),
-                                child: SizedBox(
-                                  child: Text(
-                                    AppConstant.teacher,
-                                    textAlign: TextAlign.center,
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .headline6!
-                                        .copyWith(
-                                            color:
-                                                Theme.of(context).primaryColor,
-                                            fontWeight: FontWeight.w700),
-                                  ),
+                                child: Text(
+                                  AppConstant.teacher,
+                                  textAlign: TextAlign.center,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .headline6!
+                                      .copyWith(
+                                          color: Theme.of(context).primaryColor,
+                                          fontWeight: FontWeight.w700),
                                 ),
-                              )),
-                        )
-                      ],
-                    ),
-                  ]),
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ],
             )

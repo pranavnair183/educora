@@ -10,7 +10,6 @@ import 'package:sizer/sizer.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 class LoginSigninScreen extends StatefulWidget {
-  static String routeName = ViewRouter.loginSignin;
   const LoginSigninScreen({Key? key}) : super(key: key);
 
   @override
@@ -35,6 +34,23 @@ class _LoginSigninScreenState extends State<LoginSigninScreen> {
     sName!.dispose();
     sPwd!.dispose();
     super.dispose();
+  }
+
+  void onLoginPage() {
+    setState(() {
+      _isLogin = true;
+    });
+    sEmail!.clear();
+    sPwd!.clear();
+    sName!.clear();
+  }
+
+  void onSignupPage() {
+    setState(() {
+      _isLogin = false;
+    });
+    lEmail!.clear();
+    lPwd!.clear();
   }
 
   @override
@@ -83,14 +99,7 @@ class _LoginSigninScreenState extends State<LoginSigninScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     InkWell(
-                        onTap: () {
-                          setState(() {
-                            _isLogin = true;
-                          });
-                          sEmail!.clear();
-                          sPwd!.clear();
-                          sName!.clear();
-                        },
+                        onTap: onLoginPage,
                         child: Text(
                           AppConstant.login,
                           style:
@@ -101,22 +110,16 @@ class _LoginSigninScreenState extends State<LoginSigninScreen> {
                                   ),
                         )),
                     InkWell(
-                        onTap: () {
-                          setState(() {
-                            _isLogin = false;
-                          });
-                          lEmail!.clear();
-                          lPwd!.clear();
-                        },
-                        child: Text(
-                          AppConstant.signUp,
-                          style:
-                              Theme.of(context).textTheme.headline5!.copyWith(
-                                    color: (_isLogin)
-                                        ? AppColorData.loginSignupTxtInactive
-                                        : AppColorData.loginSignupTxtActive,
-                                  ),
-                        )),
+                      onTap: onSignupPage,
+                      child: Text(
+                        AppConstant.signUp,
+                        style: Theme.of(context).textTheme.headline5!.copyWith(
+                              color: (_isLogin)
+                                  ? AppColorData.loginSignupTxtInactive
+                                  : AppColorData.loginSignupTxtActive,
+                            ),
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -163,15 +166,14 @@ class _LoginSigninScreenState extends State<LoginSigninScreen> {
                                       .headline6!
                                       .copyWith(
                                         color: AppColorData.secodaryText,
+                                        fontWeight: FontWeight.w600,
                                       ),
                                   textAlign: TextAlign.center,
                                 )
                               ],
                             ),
                           ),
-                          SizedBox(
-                            height: 3.h,
-                          ),
+                          SizedBox(height: 3.h),
                           PinCodeTextField(
                             animationType: AnimationType.none,
                             showCursor: false,
@@ -189,13 +191,10 @@ class _LoginSigninScreenState extends State<LoginSigninScreen> {
                               activeFillColor: Colors.white,
                             ),
                           ),
-                          SizedBox(
-                            height: 5.h,
-                          ),
+                          SizedBox(height: 5.h),
                           ElevatedButton(
-                              onPressed: () {
-                                Navigator.of(context).pushNamed('/');
-                              },
+                              onPressed: () =>
+                                  Navigator.of(context).pushNamed('/'),
                               style:
                                   Theme.of(context).elevatedButtonTheme.style,
                               child: Padding(
@@ -220,44 +219,31 @@ class _LoginSigninScreenState extends State<LoginSigninScreen> {
                     : (_isLogin == true)
                         ? Column(
                             children: [
-                              Container(
+                              Padding(
                                 padding: EdgeInsets.only(top: 3.h),
                                 child: TextField(
                                   controller: lEmail,
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .headline4!
-                                      .copyWith(fontWeight: FontWeight.w400),
+                                  style: Theme.of(context).textTheme.headline5,
                                   decoration: InputDecoration(
                                     border: const UnderlineInputBorder(),
                                     labelText: AppConstant.email,
-                                    labelStyle: Theme.of(context)
-                                        .textTheme
-                                        .headline6!
-                                        .copyWith(
-                                          fontWeight: FontWeight.w500,
-                                          color: AppColorData.textBlack,
-                                        ),
+                                    labelStyle:
+                                        Theme.of(context).textTheme.headline6,
                                   ),
                                 ),
                               ),
-                              Container(
+                              Padding(
                                 padding: EdgeInsets.only(top: 3.h),
                                 child: TextField(
                                   controller: lPwd,
                                   keyboardType: TextInputType.visiblePassword,
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .headline4!
-                                      .copyWith(fontWeight: FontWeight.w400),
+                                  style: Theme.of(context).textTheme.headline5,
                                   obscureText: _obscureText,
                                   decoration: InputDecoration(
                                     suffix: InkWell(
-                                        onTap: () {
-                                          setState(() {
-                                            _obscureText = !_obscureText;
-                                          });
-                                        },
+                                        onTap: () => setState(() {
+                                              _obscureText = !_obscureText;
+                                            }),
                                         child: Text(
                                           (_obscureText == true)
                                               ? AppConstant.show
@@ -272,12 +258,8 @@ class _LoginSigninScreenState extends State<LoginSigninScreen> {
                                         )),
                                     border: const UnderlineInputBorder(),
                                     labelText: AppConstant.password,
-                                    labelStyle: Theme.of(context)
-                                        .textTheme
-                                        .headline6!
-                                        .copyWith(
-                                          color: AppColorData.textBlack,
-                                        ),
+                                    labelStyle:
+                                        Theme.of(context).textTheme.headline6,
                                   ),
                                 ),
                               ),
@@ -298,48 +280,40 @@ class _LoginSigninScreenState extends State<LoginSigninScreen> {
                                   ],
                                 ),
                               ),
-                              SizedBox(
-                                height: 8.h,
-                              ),
+                              SizedBox(height: 8.h),
                               ElevatedButton(
-                                  onPressed: () {
-                                    setState(() {
-                                      _isVerification = true;
-                                    });
-                                  },
-                                  style: Theme.of(context)
-                                      .elevatedButtonTheme
-                                      .style,
-                                  child: Padding(
-                                    padding:
-                                        EdgeInsets.symmetric(horizontal: 3.w),
-                                    child: SizedBox(
-                                      width: 70.w,
-                                      child: Text(
-                                        AppConstant.loginSmall,
-                                        textAlign: TextAlign.center,
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .headline5!
-                                            .copyWith(
-                                              fontWeight: FontWeight.w700,
-                                              color: AppColorData.primaryTxt,
-                                            ),
-                                      ),
+                                onPressed: () => setState(() {
+                                  _isVerification = true;
+                                }),
+                                style:
+                                    Theme.of(context).elevatedButtonTheme.style,
+                                child: Padding(
+                                  padding:
+                                      EdgeInsets.symmetric(horizontal: 3.w),
+                                  child: SizedBox(
+                                    width: 70.w,
+                                    child: Text(
+                                      AppConstant.loginSmall,
+                                      textAlign: TextAlign.center,
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .headline5!
+                                          .copyWith(
+                                            fontWeight: FontWeight.w700,
+                                            color: AppColorData.primaryTxt,
+                                          ),
                                     ),
-                                  )),
-                              SizedBox(
-                                height: 2.h,
+                                  ),
+                                ),
                               ),
+                              SizedBox(height: 2.h),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   InkWell(
-                                    onTap: () {
-                                      setState(() {
-                                        _isLogin = false;
-                                      });
-                                    },
+                                    onTap: () => setState(() {
+                                      _isLogin = false;
+                                    }),
                                     child: Text(
                                       AppConstant.createAccount,
                                       style: Theme.of(context)
@@ -358,101 +332,69 @@ class _LoginSigninScreenState extends State<LoginSigninScreen> {
                           )
                         : Column(
                             children: [
-                              Container(
+                              Padding(
                                 padding: EdgeInsets.only(top: 2.h),
                                 child: TextField(
                                   controller: sName,
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .headline4!
-                                      .copyWith(fontWeight: FontWeight.w400),
+                                  style: Theme.of(context).textTheme.headline5,
                                   decoration: InputDecoration(
                                     border: const UnderlineInputBorder(),
                                     labelText: 'Name',
-                                    labelStyle: Theme.of(context)
-                                        .textTheme
-                                        .headline6!
-                                        .copyWith(
-                                          fontWeight: FontWeight.w400,
-                                          color: AppColorData.textBlack,
-                                        ),
+                                    labelStyle:
+                                        Theme.of(context).textTheme.headline6,
                                   ),
                                 ),
                               ),
-                              Container(
+                              Padding(
                                 padding: EdgeInsets.only(top: 2.h),
                                 child: TextField(
                                   controller: sEmail,
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .headline4!
-                                      .copyWith(fontWeight: FontWeight.w400),
+                                  style: Theme.of(context).textTheme.headline5,
                                   decoration: InputDecoration(
                                     border: const UnderlineInputBorder(),
                                     labelText: 'Email',
-                                    labelStyle: Theme.of(context)
-                                        .textTheme
-                                        .headline6!
-                                        .copyWith(
-                                          fontWeight: FontWeight.w400,
-                                          color: AppColorData.textBlack,
-                                        ),
+                                    labelStyle:
+                                        Theme.of(context).textTheme.headline6,
                                   ),
                                 ),
                               ),
-                              Container(
+                              Padding(
                                 padding: EdgeInsets.only(top: 2.h),
                                 child: TextField(
                                   controller: sPwd,
                                   keyboardType: TextInputType.visiblePassword,
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .headline4!
-                                      .copyWith(
-                                        fontWeight: FontWeight.w400,
-                                        color: AppColorData.textBlack,
-                                      ),
+                                  style: Theme.of(context).textTheme.headline5,
                                   obscureText: _obscureText,
                                   decoration: InputDecoration(
                                     suffix: InkWell(
-                                        onTap: () {
-                                          setState(() {
-                                            _obscureText = !_obscureText;
-                                          });
-                                        },
-                                        child: Text(
-                                          (_obscureText == true)
-                                              ? AppConstant.show
-                                              : AppConstant.hide,
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .headline6!
-                                              .copyWith(
-                                                color: Theme.of(context)
-                                                    .primaryColor,
-                                              ),
-                                        )),
+                                      onTap: () => setState(() {
+                                        _obscureText = !_obscureText;
+                                      }),
+                                      child: Text(
+                                        (_obscureText == true)
+                                            ? AppConstant.show
+                                            : AppConstant.hide,
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .headline6!
+                                            .copyWith(
+                                              color: Theme.of(context)
+                                                  .primaryColor,
+                                            ),
+                                      ),
+                                    ),
                                     border: const UnderlineInputBorder(),
                                     labelText: 'Password',
-                                    labelStyle: Theme.of(context)
-                                        .textTheme
-                                        .headline6!
-                                        .copyWith(
-                                          fontWeight: FontWeight.w400,
-                                          color: AppColorData.textBlack,
-                                        ),
+                                    labelStyle:
+                                        Theme.of(context).textTheme.headline6,
                                   ),
                                 ),
                               ),
-                              SizedBox(
-                                height: 5.h,
-                              ),
+                              SizedBox(height: 5.h),
                               ElevatedButton(
-                                  onPressed: () {
-                                    setState(() {
-                                      _isVerification = true;
-                                    });
-                                  },
+                                  onPressed: () => setState(() {
+                                        _isVerification = true;
+                                      }),
                                   style: Theme.of(context)
                                       .elevatedButtonTheme
                                       .style,
@@ -474,18 +416,14 @@ class _LoginSigninScreenState extends State<LoginSigninScreen> {
                                       ),
                                     ),
                                   )),
-                              SizedBox(
-                                height: 2.h,
-                              ),
+                              SizedBox(height: 2.h),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   InkWell(
-                                    onTap: () {
-                                      setState(() {
-                                        _isLogin = true;
-                                      });
-                                    },
+                                    onTap: () => setState(() {
+                                      _isLogin = true;
+                                    }),
                                     child: Text(
                                       AppConstant.alreadyHavingAccountLogin,
                                       style: Theme.of(context)

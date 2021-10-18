@@ -3,10 +3,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sizer/sizer.dart';
 import 'package:educora/utils/utils.dart';
 import 'dart:ui';
-import 'payment_success_screen.dart';
 
 class ScannerScreen extends StatefulWidget {
-  static String routeName = ViewRouter.scanner;
   const ScannerScreen({Key? key}) : super(key: key);
 
   @override
@@ -26,8 +24,9 @@ class _ScannerScreenState extends State<ScannerScreen> {
         shape: Border.all(color: Theme.of(context).primaryColor, width: 0),
         backgroundColor: Theme.of(context).primaryColor,
         toolbarHeight: 10.h,
-        leading: Builder(builder: (context) {
-          return Padding(
+        leading: Builder(
+          builder: (context) {
+            return Padding(
               padding: EdgeInsets.only(top: 0.h),
               child: IconButton(
                 icon: Icon(
@@ -35,11 +34,11 @@ class _ScannerScreenState extends State<ScannerScreen> {
                   size: 5.h,
                   color: AppColorData.secondaryIcon,
                 ),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-              ));
-        }),
+                onPressed: () => Navigator.of(context).pop(),
+              ),
+            );
+          },
+        ),
         title: Text(
           AppConstant.scanCard,
           style: Theme.of(context).textTheme.headline4!.copyWith(
@@ -86,155 +85,151 @@ class _ScannerScreenState extends State<ScannerScreen> {
                 children: [
                   Expanded(
                     child: ElevatedButton(
-                      onPressed: () {
-                        showModalBottomSheet(
-                          context: context,
-                          barrierColor: AppColorData.barrierBg,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(4.h),
-                            topRight: Radius.circular(4.h),
-                          )),
-                          builder: (context) {
-                            return StatefulBuilder(
-                              builder: (ctx, setModalState) {
-                                return SizedBox(
-                                  height: 43.h,
-                                  child: Padding(
-                                    padding:
-                                        EdgeInsets.symmetric(horizontal: 6.w),
-                                    child: (isLoading == true)
-                                        ? const Center(
-                                            child: CircularProgressIndicator(),
-                                          )
-                                        : Column(
-                                            children: [
-                                              const Spacer(),
-                                              CircleAvatar(
-                                                backgroundColor:
-                                                    (isSuccess == true)
-                                                        ? AppColorData
-                                                            .scannerDoneBg3
-                                                        : Colors.red,
-                                                child: SvgPicture.asset(
-                                                  (isSuccess == true)
-                                                      ? Resource.doneIcon
-                                                      : Resource.failedIcon,
-                                                  height: 3.h,
-                                                ),
-                                                radius: 4.h,
-                                              ),
-                                              SizedBox(
-                                                height: 2.h,
-                                              ),
-                                              Text(
+                      onPressed: () => showModalBottomSheet(
+                        context: context,
+                        barrierColor: AppColorData.barrierBg,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(4.h),
+                          topRight: Radius.circular(4.h),
+                        )),
+                        builder: (context) {
+                          return StatefulBuilder(
+                            builder: (ctx, setModalState) {
+                              return SizedBox(
+                                height: 43.h,
+                                child: Padding(
+                                  padding:
+                                      EdgeInsets.symmetric(horizontal: 6.w),
+                                  child: (isLoading == true)
+                                      ? const Center(
+                                          child: CircularProgressIndicator(),
+                                        )
+                                      : Column(
+                                          children: [
+                                            const Spacer(),
+                                            CircleAvatar(
+                                              backgroundColor: (isSuccess ==
+                                                      true)
+                                                  ? AppColorData.scannerDoneBg3
+                                                  : Colors.red,
+                                              child: SvgPicture.asset(
                                                 (isSuccess == true)
-                                                    ? AppConstant.scanSuccess
-                                                    : AppConstant.scanFailed,
-                                                style: Theme.of(context)
-                                                    .textTheme
-                                                    .headline3,
+                                                    ? Resource.doneIcon
+                                                    : Resource.failedIcon,
+                                                height: 3.h,
                                               ),
-                                              SizedBox(
-                                                height: 2.h,
-                                              ),
-                                              Text(
-                                                (isSuccess == true)
-                                                    ? AppConstant
-                                                        .yourCreditCardIsSuccessFullyScanned
-                                                    : AppConstant
-                                                        .yourCreditCardScanFailed,
-                                                style: Theme.of(context)
-                                                    .textTheme
-                                                    .caption!
-                                                    .copyWith(fontSize: 14.sp),
-                                                textAlign: TextAlign.center,
-                                              ),
-                                              const Spacer(),
-                                              Padding(
-                                                padding: EdgeInsets.symmetric(
-                                                    vertical: 1.5.h),
-                                                child: Row(
-                                                  children: [
-                                                    Expanded(
-                                                      child: ElevatedButton(
-                                                          onPressed:
-                                                              (isSuccess ==
-                                                                      false)
-                                                                  ? () {
+                                              radius: 4.h,
+                                            ),
+                                            SizedBox(height: 2.h),
+                                            Text(
+                                              (isSuccess == true)
+                                                  ? AppConstant.scanSuccess
+                                                  : AppConstant.scanFailed,
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .headline3,
+                                            ),
+                                            SizedBox(height: 2.h),
+                                            Text(
+                                              (isSuccess == true)
+                                                  ? AppConstant
+                                                      .yourCreditCardIsSuccessFullyScanned
+                                                  : AppConstant
+                                                      .yourCreditCardScanFailed,
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .caption!
+                                                  .copyWith(fontSize: 14.sp),
+                                              textAlign: TextAlign.center,
+                                            ),
+                                            const Spacer(),
+                                            Padding(
+                                              padding: EdgeInsets.symmetric(
+                                                  vertical: 1.5.h),
+                                              child: Row(
+                                                children: [
+                                                  Expanded(
+                                                    child: ElevatedButton(
+                                                        onPressed:
+                                                            (isSuccess == false)
+                                                                ? () {
+                                                                    setModalState(
+                                                                        () {
+                                                                      isLoading =
+                                                                          true;
+                                                                    });
+                                                                    Future.delayed(
+                                                                        const Duration(
+                                                                            seconds:
+                                                                                3),
+                                                                        () {
                                                                       setModalState(
                                                                           () {
-                                                                        isLoading =
+                                                                        isSuccess =
                                                                             true;
+                                                                        isLoading =
+                                                                            false;
                                                                       });
-                                                                      Future.delayed(
-                                                                          const Duration(
-                                                                              seconds: 3),
-                                                                          () {
-                                                                        setModalState(
-                                                                            () {
-                                                                          isSuccess =
-                                                                              true;
-                                                                          isLoading =
-                                                                              false;
-                                                                        });
-                                                                      });
-                                                                    }
-                                                                  : () {
-                                                                      Navigator.of(
-                                                                              context)
-                                                                          .pushNamed(
-                                                                              PaymentSuccessScreen.routeName);
-                                                                    },
-                                                          style: Theme.of(
-                                                                  context)
-                                                              .elevatedButtonTheme
-                                                              .style!
-                                                              .copyWith(
-                                                                  padding: MaterialStateProperty.resolveWith((states) =>
-                                                                      EdgeInsets.symmetric(
-                                                                          vertical:
-                                                                              2.h))),
-                                                          child: Padding(
-                                                            padding: EdgeInsets
-                                                                .symmetric(
-                                                                    horizontal:
-                                                                        3.w),
-                                                            child: Text(
-                                                              (isSuccess ==
-                                                                      true)
-                                                                  ? AppConstant
-                                                                      .next
-                                                                  : AppConstant
-                                                                      .tryAgain,
-                                                              textAlign:
-                                                                  TextAlign
-                                                                      .center,
-                                                              style: Theme.of(
-                                                                      context)
-                                                                  .textTheme
-                                                                  .headline5!
-                                                                  .copyWith(
-                                                                      color: Colors
-                                                                          .white,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .w700),
+                                                                    });
+                                                                  }
+                                                                : () {
+                                                                    Navigator.of(
+                                                                            context)
+                                                                        .pushNamed(
+                                                                            ViewRouter.paymentSuccess);
+                                                                  },
+                                                        style: Theme.of(context)
+                                                            .elevatedButtonTheme
+                                                            .style!
+                                                            .copyWith(
+                                                              padding:
+                                                                  MaterialStateProperty
+                                                                      .resolveWith(
+                                                                (states) =>
+                                                                    EdgeInsets
+                                                                        .symmetric(
+                                                                  vertical: 2.h,
+                                                                ),
+                                                              ),
                                                             ),
-                                                          )),
-                                                    ),
-                                                  ],
-                                                ),
+                                                        child: Padding(
+                                                          padding: EdgeInsets
+                                                              .symmetric(
+                                                                  horizontal:
+                                                                      3.w),
+                                                          child: Text(
+                                                            (isSuccess == true)
+                                                                ? AppConstant
+                                                                    .next
+                                                                : AppConstant
+                                                                    .tryAgain,
+                                                            textAlign: TextAlign
+                                                                .center,
+                                                            style: Theme.of(
+                                                                    context)
+                                                                .textTheme
+                                                                .headline5!
+                                                                .copyWith(
+                                                                    color: Colors
+                                                                        .white,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w700),
+                                                          ),
+                                                        )),
+                                                  ),
+                                                ],
                                               ),
-                                            ],
-                                          ),
-                                  ),
-                                );
-                              },
-                            );
-                          },
-                        );
-                      },
+                                            ),
+                                          ],
+                                        ),
+                                ),
+                              );
+                            },
+                          );
+                        },
+                      ),
                       style: Theme.of(context)
                           .elevatedButtonTheme
                           .style!

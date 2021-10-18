@@ -3,17 +3,18 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
 class PtTab extends StatelessWidget {
-  final String? title;
-  final String? imgPath;
-  final String? years;
-  final bool? isFirst;
   const PtTab({
     Key? key,
-    this.title,
-    this.imgPath,
-    this.years,
+    required this.title,
+    required this.imgPath,
+    required this.years,
     this.isFirst = false,
   }) : super(key: key);
+
+  final String title;
+  final String imgPath;
+  final String years;
+  final bool? isFirst;
 
   @override
   Widget build(BuildContext context) {
@@ -43,13 +44,11 @@ class PtTab extends StatelessWidget {
           child: Row(
             children: [
               Image.asset(
-                imgPath!,
+                imgPath,
                 height: 70.sp,
               ),
-              SizedBox(
-                width: 3.w,
-              ),
-              Text(title!,
+              SizedBox(width: 3.w),
+              Text(title,
                   style: Theme.of(context).textTheme.headline6!.copyWith(
                       color:
                           (isFirst!) ? AppColorData.primaryTxt : Colors.black,
@@ -69,7 +68,7 @@ class PtTab extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        years!,
+                        years,
                         style: Theme.of(context).textTheme.headline3,
                       ),
                       Text(

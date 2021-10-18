@@ -3,10 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
 class CourseVideoTab extends StatelessWidget {
-  final String? title;
+  const CourseVideoTab({
+    Key? key,
+    required this.title,
+    this.isFirst = false,
+  }) : super(key: key);
+
+  final String title;
   final bool? isFirst;
-  const CourseVideoTab({Key? key, this.title, this.isFirst = false})
-      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -34,20 +38,16 @@ class CourseVideoTab extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(
-            width: 5.w,
-          ),
+          SizedBox(width: 5.w),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(title!,
+              Text(title,
                   style: Theme.of(context)
                       .textTheme
                       .headline5!
                       .copyWith(fontWeight: FontWeight.w700)),
-              SizedBox(
-                height: 1.h,
-              ),
+              SizedBox(height: 1.h),
               Text(
                 AppConstant.random2,
                 style: Theme.of(context)

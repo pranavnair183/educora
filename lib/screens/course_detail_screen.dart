@@ -5,7 +5,6 @@ import '../widgets/course_video_tab.dart';
 import '../utils/utils.dart';
 
 class CourseDetailScreen extends StatefulWidget {
-  static String routeName = ViewRouter.courseDetail;
   const CourseDetailScreen({Key? key}) : super(key: key);
 
   @override
@@ -28,9 +27,7 @@ class _CourseDetailScreenState extends State<CourseDetailScreen> {
                   size: 5.h,
                   color: Theme.of(context).iconTheme.color,
                 ),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
+                onPressed: () => Navigator.of(context).pop(),
               ));
         }),
         actions: [
@@ -134,9 +131,7 @@ class _CourseDetailScreenState extends State<CourseDetailScreen> {
                                 Resource.flagIcon,
                                 height: 8.h,
                               ),
-                              SizedBox(
-                                height: 4.h,
-                              ),
+                              SizedBox(height: 4.h),
                               Text(
                                 AppConstant.eightyFivePercent,
                                 style: Theme.of(context)
@@ -175,9 +170,7 @@ class _CourseDetailScreenState extends State<CourseDetailScreen> {
                                 Resource.boardIcon,
                                 height: 8.h,
                               ),
-                              SizedBox(
-                                height: 4.h,
-                              ),
+                              SizedBox(height: 4.h),
                               Text(
                                 AppConstant.thirtyTwo,
                                 style: Theme.of(context)
@@ -216,9 +209,7 @@ class _CourseDetailScreenState extends State<CourseDetailScreen> {
                                 Resource.bookIcon,
                                 height: 8.h,
                               ),
-                              SizedBox(
-                                height: 4.h,
-                              ),
+                              SizedBox(height: 4.h),
                               Text(
                                 AppConstant.plusTen,
                                 style: Theme.of(context)
@@ -275,9 +266,7 @@ class _CourseDetailScreenState extends State<CourseDetailScreen> {
                             color: const Color.fromRGBO(55, 106, 237, 1),
                             size: 16.sp,
                           ),
-                          SizedBox(
-                            width: 2.w,
-                          ),
+                          SizedBox(width: 2.w),
                           Text(
                             AppConstant.threeHoursTwentyMin,
                             style: Theme.of(context)

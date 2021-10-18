@@ -4,7 +4,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class OnboardingScreen extends StatefulWidget {
-  static String routeName = ViewRouter.onBoarding;
   const OnboardingScreen({Key? key}) : super(key: key);
 
   @override
@@ -18,29 +17,16 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     return PageView(
       controller: controller,
       physics: const NeverScrollableScrollPhysics(),
-      children: [
-        Ob1(
-          imgPath: Resource.ob1,
-          buttonTxt: AppConstant.next,
-          title: AppConstant.learnOnlineFromYourHome,
+      children: List.generate(
+        3,
+        (index) => Ob1(
+          imgPath: AppConstant.onBoarding[index]['imgPath'],
+          buttonTxt: AppConstant.onBoarding[index]['buttonTxt'],
+          title: AppConstant.onBoarding[index]['title'],
+          isLast: AppConstant.onBoarding[index]['isLast'],
           changePage: controller,
-          isLast: false,
         ),
-        Ob1(
-          imgPath: Resource.ob2,
-          buttonTxt: AppConstant.getStarted,
-          title: AppConstant.theBestPlatformForOnlineLearning,
-          changePage: controller,
-          isLast: false,
-        ),
-        Ob1(
-          imgPath: Resource.ob3,
-          buttonTxt: AppConstant.getStarted,
-          title: AppConstant.theBestPlatformForOnlineLearning,
-          changePage: controller,
-          isLast: true,
-        )
-      ],
+      ),
     );
   }
 }

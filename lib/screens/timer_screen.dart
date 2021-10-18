@@ -14,7 +14,6 @@ String formatTime(int milliseconds) {
 }
 
 class TimerScreen extends StatefulWidget {
-  static String routeName = ViewRouter.timer;
   const TimerScreen({Key? key}) : super(key: key);
 
   @override
@@ -22,8 +21,8 @@ class TimerScreen extends StatefulWidget {
 }
 
 class _TimerScreenState extends State<TimerScreen> {
-  Stopwatch? _stopwatch;
-  Timer? _timer;
+  late Stopwatch _stopwatch;
+  late Timer _timer;
 
   @override
   void initState() {
@@ -36,15 +35,15 @@ class _TimerScreenState extends State<TimerScreen> {
 
   @override
   void dispose() {
-    _timer!.cancel();
+    _timer.cancel();
     super.dispose();
   }
 
   void handleStartStop() {
-    if (_stopwatch!.isRunning) {
-      _stopwatch!.stop();
+    if (_stopwatch.isRunning) {
+      _stopwatch.stop();
     } else {
-      _stopwatch!.start();
+      _stopwatch.start();
     }
     setState(() {}); // re-render the page
   }
@@ -63,9 +62,7 @@ class _TimerScreenState extends State<TimerScreen> {
                   size: 5.h,
                   color: Colors.black,
                 ),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
+                onPressed: () => Navigator.of(context).pop(),
               ));
         }),
         title: Text(
@@ -105,9 +102,7 @@ class _TimerScreenState extends State<TimerScreen> {
             padding: EdgeInsets.symmetric(horizontal: 5.w),
             child: Column(
               children: [
-                SizedBox(
-                  height: 2.h,
-                ),
+                SizedBox(height: 2.h),
                 Row(
                   children: [
                     Text(
@@ -144,7 +139,7 @@ class _TimerScreenState extends State<TimerScreen> {
                                   children: [
                                     Text(
                                       formatTime(
-                                          _stopwatch!.elapsedMilliseconds),
+                                          _stopwatch.elapsedMilliseconds),
                                       style: Theme.of(context)
                                           .textTheme
                                           .headline1!
@@ -230,9 +225,7 @@ class _TimerScreenState extends State<TimerScreen> {
                     badgeList: AppConstant.badgeList4,
                   ),
                 ),
-                SizedBox(
-                  height: 10.h,
-                )
+                SizedBox(height: 10.h)
               ],
             ),
           ),
@@ -249,7 +242,7 @@ class _TimerScreenState extends State<TimerScreen> {
                   child: SizedBox(
                     width: 100.w,
                     child: Text(
-                      _stopwatch!.isRunning
+                      _stopwatch.isRunning
                           ? AppConstant.stop
                           : AppConstant.start,
                       textAlign: TextAlign.center,

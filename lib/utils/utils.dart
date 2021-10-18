@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:educora/models/user.dart';
 
+import 'package:sizer/sizer.dart';
+
 class AppColorData {
   static const Color booksInpFill = Color.fromRGBO(227, 241, 255, 1);
   static const Color searchInpFill = Color.fromRGBO(227, 241, 255, 1);
@@ -23,7 +25,7 @@ class AppColorData {
   static const Color coursesHeaderBg = Color.fromRGBO(38, 32, 44, 1);
   static const Color homeHeaderBg = Color.fromRGBO(38, 32, 44, 1);
   static const Color loginHeaderBg = Color.fromRGBO(242, 242, 242, 1);
-  static Color secodaryText = Colors.black12;
+  static Color secodaryText = Colors.grey[900]!;
   static const Color courseTotalTimeBg = Color.fromRGBO(195, 210, 250, 1);
   static const Color paymentSuccessPb1 = Color.fromRGBO(253, 85, 186, 1);
   static const Color paymentSuccessDoneBg1 = Color.fromRGBO(208, 208, 208, 0.1);
@@ -234,11 +236,101 @@ class AppConstant {
     },
     {'title': 'UI/UX', 'txtColor': Colors.green, 'bgColor': Colors.green[100]},
   ];
+  static List<Map<String, dynamic>> coursesList = [
+    {
+      'name': AppConstant.xdPrototyping,
+      'imgPath': Resource.xdIcon,
+    },
+    {
+      'name': AppConstant.sketch,
+      'imgPath': Resource.sketchIcon,
+    },
+    {
+      'name': AppConstant.afterEffects,
+      'imgPath': Resource.aeIcon,
+    },
+    {
+      'name': AppConstant.figma,
+      'imgPath': Resource.figmaIcon,
+    },
+    {
+      'name': AppConstant.adobePs,
+      'imgPath': Resource.psIcon,
+    },
+  ];
+  static List<Map<String, dynamic>> homeList = [
+    {
+      'name': AppConstant.xdPrototyping,
+      'imgPath': Resource.xdIcon,
+    },
+    {
+      'name': AppConstant.sketch,
+      'imgPath': Resource.sketchIcon,
+    },
+    {
+      'name': AppConstant.afterEffects,
+      'imgPath': Resource.aeIcon,
+    },
+  ];
 
   static const List<Map<String, String>> info = [
     {'title': 'Adobe XD', 'years': '05', 'imgPath': Resource.tb1},
     {'title': 'Sketch', 'years': '4.5', 'imgPath': Resource.tb2},
     {'title': 'After Effects', 'years': '3.5', 'imgPath': Resource.tb3},
+  ];
+
+  static const List<Map<String, dynamic>> ptList = [
+    {
+      'title': adobeXd,
+      'years': '05',
+      'imgPath': Resource.pt1,
+      'isFirst': true,
+    },
+    {
+      'title': sketch,
+      'years': '4.5',
+      'imgPath': Resource.pt2,
+      'isFirst': false
+    },
+    {
+      'title': afterEffects,
+      'years': '3.5',
+      'imgPath': Resource.pt3,
+      'isFirst': false,
+    },
+    {
+      'title': figma,
+      'years': '06',
+      'imgPath': Resource.pt4,
+      'isFirst': false,
+    },
+    {
+      'title': adobePs,
+      'years': '07',
+      'imgPath': Resource.pt5,
+      'isFirst': false,
+    },
+  ];
+
+  static const List<Map<String, dynamic>> onBoarding = [
+    {
+      'imgPath': Resource.ob1,
+      'buttonTxt': next,
+      'title': learnOnlineFromYourHome,
+      'isLast': false,
+    },
+    {
+      'imgPath': Resource.ob2,
+      'buttonTxt': getStarted,
+      'title': theBestPlatformForOnlineLearning,
+      'isLast': false,
+    },
+    {
+      'imgPath': Resource.ob3,
+      'buttonTxt': getStarted,
+      'title': theBestPlatformForOnlineLearning,
+      'isLast': true,
+    },
   ];
   static const List<Map<String, String>> scrollerData = [
     {'name': "Cold Lake", 'author': "Jeff Carson", 'imgUrl': Resource.book1},
@@ -253,6 +345,7 @@ class AppConstant {
 
 class Resource {
   static const String cbFooter = 'assets/images/cb_footer.png';
+  static const String psIcon = 'assets/images/icons/ps_icon.png';
   static const String profilePicCourseDetail =
       'assets/images/profile_pic_cd.png';
   static const String studentIcon = 'assets/images/icons/student_icon.png';
@@ -343,3 +436,62 @@ class ViewRouter {
   static const trackOrder = '/track_order';
   static const videoChat = '/video_chat';
 }
+
+ThemeData appTheme = ThemeData(
+  appBarTheme: const AppBarTheme(
+    backgroundColor: Colors.white,
+    elevation: 0,
+    toolbarHeight: 60,
+  ),
+  iconTheme: const IconThemeData(color: Colors.black),
+  primaryColor: const Color.fromRGBO(55, 106, 237, 1),
+  scaffoldBackgroundColor: Colors.white,
+  floatingActionButtonTheme: const FloatingActionButtonThemeData(
+    backgroundColor: Color.fromRGBO(55, 106, 237, 1),
+  ),
+  buttonTheme: ButtonThemeData(
+    buttonColor: const Color.fromRGBO(55, 106, 237, 1),
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
+    textTheme: ButtonTextTheme.primary,
+  ),
+  elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ButtonStyle(
+          backgroundColor: MaterialStateColor.resolveWith(
+              (states) => const Color.fromRGBO(55, 106, 237, 1)),
+          shape: MaterialStateProperty.resolveWith(
+            (states) => RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(1.h),
+              side: const BorderSide(
+                color: Color.fromRGBO(55, 106, 237, 1),
+              ),
+            ),
+          ),
+          textStyle: MaterialStateProperty.resolveWith((states) => TextStyle(
+              fontSize: 14.sp,
+              color: Colors.white,
+              fontWeight: FontWeight.w400)),
+          padding: MaterialStateProperty.resolveWith(
+              (states) => EdgeInsets.symmetric(vertical: 3.h)))),
+  textTheme: TextTheme(
+    headline1: TextStyle(
+        fontSize: 29.sp, color: Colors.black, fontWeight: FontWeight.w600),
+    headline2: TextStyle(
+        fontSize: 23.sp, color: Colors.black, fontWeight: FontWeight.w600),
+    headline3: TextStyle(
+        fontSize: 20.sp, color: Colors.black, fontWeight: FontWeight.w500),
+    headline4: TextStyle(
+        fontSize: 17.sp, color: Colors.black, fontWeight: FontWeight.w600),
+    headline5: TextStyle(
+        fontSize: 15.sp, color: Colors.black, fontWeight: FontWeight.w500),
+    headline6: TextStyle(
+        fontSize: 12.sp, color: Colors.black, fontWeight: FontWeight.w400),
+    bodyText1: TextStyle(
+        fontSize: 10.sp, color: Colors.black, fontWeight: FontWeight.w400),
+    bodyText2: TextStyle(
+        fontSize: 8.sp, color: Colors.black, fontWeight: FontWeight.w400),
+    caption: TextStyle(
+      fontSize: 8.sp,
+      color: Colors.grey,
+    ),
+  ),
+);

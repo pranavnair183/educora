@@ -7,11 +7,12 @@ import 'package:sizer/sizer.dart';
 import 'package:educora/utils/utils.dart';
 
 class CustomCalendar extends StatefulWidget {
-  final Function(DateTime date)? updateDate;
   const CustomCalendar({
     Key? key,
-    this.updateDate,
+    required this.updateDate,
   }) : super(key: key);
+
+  final Function(DateTime date) updateDate;
 
   @override
   State<CustomCalendar> createState() => _CustomCalendarState();
@@ -38,7 +39,7 @@ class _CustomCalendarState extends State<CustomCalendar> {
       setState(() {
         _focusedDay.value = selectedDay;
       });
-      widget.updateDate!(selectedDay);
+      widget.updateDate(selectedDay);
     }
   }
 

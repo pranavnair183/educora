@@ -8,7 +8,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../widgets/pt_tab.dart';
 
 class TeachersBookingScreen extends StatefulWidget {
-  static String routeName = ViewRouter.teacherBooking;
   const TeachersBookingScreen({Key? key}) : super(key: key);
 
   @override
@@ -32,9 +31,7 @@ class _TeachersBookingScreenState extends State<TeachersBookingScreen> {
                   size: 5.h,
                   color: Colors.black,
                 ),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
+                onPressed: () => Navigator.of(context).pop(),
               ));
         }),
         title: Text(
@@ -91,9 +88,7 @@ class _TeachersBookingScreenState extends State<TeachersBookingScreen> {
                           )
                         ],
                       ),
-                      SizedBox(
-                        height: 4.h,
-                      ),
+                      SizedBox(height: 4.h),
                       Row(
                         children: [
                           Expanded(
@@ -107,11 +102,9 @@ class _TeachersBookingScreenState extends State<TeachersBookingScreen> {
                                       6,
                                       (index) => Expanded(
                                             child: InkWell(
-                                              onTap: () {
-                                                setState(() {
-                                                  activeBlock = index;
-                                                });
-                                              },
+                                              onTap: () => setState(() {
+                                                activeBlock = index;
+                                              }),
                                               child: Container(
                                                 decoration: BoxDecoration(
                                                   borderRadius:
@@ -182,9 +175,7 @@ class _TeachersBookingScreenState extends State<TeachersBookingScreen> {
                           )
                         ],
                       ),
-                      SizedBox(
-                        height: 5.h,
-                      ),
+                      SizedBox(height: 5.h),
                       Row(
                         children: [
                           Text(
@@ -211,24 +202,20 @@ class _TeachersBookingScreenState extends State<TeachersBookingScreen> {
                       (index) => Padding(
                         padding: EdgeInsets.only(top: 2.h),
                         child: InkWell(
-                          onTap: () {
-                            setState(() {
-                              activeTab = index;
-                            });
-                          },
+                          onTap: () => setState(() {
+                            activeTab = index;
+                          }),
                           child: PtTab(
-                            title: AppConstant.info[index]['title'],
-                            years: AppConstant.info[index]['years'],
-                            imgPath: AppConstant.info[index]['imgPath'],
+                            title: AppConstant.info[index]['title']!,
+                            years: AppConstant.info[index]['years']!,
+                            imgPath: AppConstant.info[index]['imgPath']!,
                             isFirst: (activeTab == index) ? true : false,
                           ),
                         ),
                       ),
                     ) +
                     [
-                      SizedBox(
-                        height: 20.h,
-                      ),
+                      SizedBox(height: 20.h),
                     ]),
           ),
         ),

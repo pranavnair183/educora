@@ -2,13 +2,16 @@ import 'package:educora/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:percent_indicator/percent_indicator.dart';
-import '../screens/course_detail_screen.dart';
 
 class ProgressCard extends StatefulWidget {
-  const ProgressCard({Key? key, this.name, this.imgPath}) : super(key: key);
+  const ProgressCard({
+    Key? key,
+    required this.name,
+    required this.imgPath,
+  }) : super(key: key);
 
-  final String? name;
-  final String? imgPath;
+  final String name;
+  final String imgPath;
 
   @override
   _ProgressCardState createState() => _ProgressCardState();
@@ -18,9 +21,7 @@ class _ProgressCardState extends State<ProgressCard> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
-        Navigator.of(context).pushNamed(CourseDetailScreen.routeName);
-      },
+      onTap: () => Navigator.of(context).pushNamed(ViewRouter.courseDetail),
       child: Container(
         decoration: BoxDecoration(
             color: AppColorData.progressCardBg,
@@ -30,17 +31,15 @@ class _ProgressCardState extends State<ProgressCard> {
           child: Row(
             children: [
               Image.asset(
-                widget.imgPath!,
+                widget.imgPath,
                 height: 9.h,
               ),
-              SizedBox(
-                width: 4.w,
-              ),
+              SizedBox(width: 4.w),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    widget.name!,
+                    widget.name,
                     style: Theme.of(context).textTheme.headline6!.copyWith(
                           color: AppColorData.progressCardTxt,
                         ),
@@ -62,9 +61,7 @@ class _ProgressCardState extends State<ProgressCard> {
                       color: AppColorData.progressCardTxt,
                     ),
               ),
-              SizedBox(
-                width: 3.w,
-              ),
+              SizedBox(width: 3.w),
               ClipRRect(
                 borderRadius: BorderRadius.circular(35.sp),
                 child: CircularPercentIndicator(

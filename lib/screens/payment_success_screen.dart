@@ -1,4 +1,3 @@
-import 'package:educora/screens/track_order_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sizer/sizer.dart';
@@ -6,7 +5,6 @@ import 'package:educora/utils/utils.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
 class PaymentSuccessScreen extends StatefulWidget {
-  static const routeName = ViewRouter.paymentSuccess;
   const PaymentSuccessScreen({Key? key}) : super(key: key);
 
   @override
@@ -19,8 +17,9 @@ class _PaymentSuccessScreenState extends State<PaymentSuccessScreen> {
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 10.h,
-        leading: Builder(builder: (context) {
-          return Padding(
+        leading: Builder(
+          builder: (context) {
+            return Padding(
               padding: EdgeInsets.only(top: 0.h),
               child: IconButton(
                 icon: Icon(
@@ -28,11 +27,11 @@ class _PaymentSuccessScreenState extends State<PaymentSuccessScreen> {
                   size: 5.h,
                   color: Colors.black,
                 ),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-              ));
-        }),
+                onPressed: () => Navigator.of(context).pop(),
+              ),
+            );
+          },
+        ),
         title: Text(
           AppConstant.payment,
           style: Theme.of(context).textTheme.headline4!,
@@ -77,9 +76,7 @@ class _PaymentSuccessScreenState extends State<PaymentSuccessScreen> {
             ),
           ),
         ]),
-        SizedBox(
-          height: 6.h,
-        ),
+        SizedBox(height: 6.h),
         Text(
           AppConstant.paymentSuccess,
           textAlign: TextAlign.center,
@@ -88,14 +85,13 @@ class _PaymentSuccessScreenState extends State<PaymentSuccessScreen> {
               .headline2!
               .copyWith(fontWeight: FontWeight.w700),
         ),
-        SizedBox(
-          height: 2.h,
-        ),
+        SizedBox(height: 2.h),
         Text(
           AppConstant.yourCreditCardIsSuccessFullyScanned,
           textAlign: TextAlign.center,
           style: Theme.of(context).textTheme.headline6!.copyWith(
                 color: AppColorData.secodaryText,
+                fontWeight: FontWeight.w700,
               ),
         ),
         const Spacer(),
@@ -105,10 +101,8 @@ class _PaymentSuccessScreenState extends State<PaymentSuccessScreen> {
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 7.w),
                 child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.of(context)
-                          .pushNamed(TrackOrderScreen.routeName);
-                    },
+                    onPressed: () =>
+                        Navigator.of(context).pushNamed(ViewRouter.trackOrder),
                     style: Theme.of(context)
                         .elevatedButtonTheme
                         .style!
@@ -130,9 +124,7 @@ class _PaymentSuccessScreenState extends State<PaymentSuccessScreen> {
             ),
           ],
         ),
-        SizedBox(
-          height: 2.h,
-        )
+        SizedBox(height: 2.h),
       ]),
     );
   }

@@ -1,10 +1,8 @@
-import 'package:educora/screens/checkout_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:educora/utils/utils.dart';
 
 class BookDetailScreen extends StatefulWidget {
-  static String routeName = ViewRouter.bookDetail;
   const BookDetailScreen({Key? key}) : super(key: key);
 
   @override
@@ -51,9 +49,7 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
                           .headline4!
                           .copyWith(fontWeight: FontWeight.w400),
                     ),
-                    SizedBox(
-                      height: 0.5.h,
-                    ),
+                    SizedBox(height: 0.5.h),
                     Text(
                       AppConstant.scrollerData.elementAt(0)['author']!,
                       style: Theme.of(context)
@@ -75,10 +71,8 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
                     padding: EdgeInsets.symmetric(horizontal: 4.w),
                     child: ElevatedButton(
                         style: Theme.of(context).elevatedButtonTheme.style,
-                        onPressed: () {
-                          Navigator.of(context)
-                              .pushNamed(CheckoutScreen.routeName);
-                        },
+                        onPressed: () => Navigator.of(context)
+                            .pushNamed(ViewRouter.checkout),
                         child: Text(
                           AppConstant.buyEbook,
                           style: Theme.of(context)
@@ -105,10 +99,8 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
                               (states) => AppColorData.buyAudioBtn),
                           padding: MaterialStateProperty.resolveWith(
                               (states) => EdgeInsets.symmetric(vertical: 3.h))),
-                      onPressed: () {
-                        Navigator.of(context)
-                            .pushNamed(CheckoutScreen.routeName);
-                      },
+                      onPressed: () =>
+                          Navigator.of(context).pushNamed(ViewRouter.checkout),
                       child: Text(
                         AppConstant.buyAudio,
                         style: Theme.of(context).textTheme.headline6!.copyWith(
@@ -154,9 +146,7 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
                                     image: AssetImage(Resource.book4),
                                     fit: BoxFit.cover)),
                           ),
-                          SizedBox(
-                            height: 1.h,
-                          ),
+                          SizedBox(height: 1.h),
                           Text(AppConstant.book4,
                               style: Theme.of(context)
                                   .textTheme
@@ -181,9 +171,7 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
                                     image: AssetImage(Resource.book3),
                                     fit: BoxFit.cover)),
                           ),
-                          SizedBox(
-                            height: 1.h,
-                          ),
+                          SizedBox(height: 1.h),
                           Text(AppConstant.book3,
                               style: Theme.of(context)
                                   .textTheme
@@ -208,9 +196,7 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
                                     image: AssetImage(Resource.book5),
                                     fit: BoxFit.cover)),
                           ),
-                          SizedBox(
-                            height: 1.h,
-                          ),
+                          SizedBox(height: 1.h),
                           Text(AppConstant.book5,
                               style: Theme.of(context)
                                   .textTheme
@@ -224,9 +210,7 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
               ],
             ),
           ),
-          SizedBox(
-            height: 5.h,
-          )
+          SizedBox(height: 5.h)
         ],
       ),
     );

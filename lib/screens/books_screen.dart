@@ -3,11 +3,9 @@ import 'package:sizer/sizer.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:scroll_snap_list/scroll_snap_list.dart';
 import '../utils/utils.dart';
-import 'book_detail.dart';
 import 'dart:math';
 
 class BooksScreen extends StatefulWidget {
-  static String routeName = ViewRouter.books;
   const BooksScreen({Key? key}) : super(key: key);
 
   @override
@@ -34,9 +32,7 @@ class _BooksScreenState extends State<BooksScreen> {
       );
     }
     return InkWell(
-      onTap: () {
-        Navigator.of(context).pushNamed(BookDetailScreen.routeName);
-      },
+      onTap: () => Navigator.of(context).pushNamed(ViewRouter.bookDetail),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(2.h),
         child: Stack(children: [
@@ -232,9 +228,7 @@ class _BooksScreenState extends State<BooksScreen> {
                                   image: AssetImage(Resource.book3),
                                   fit: BoxFit.cover)),
                         ),
-                        SizedBox(
-                          height: 1.h,
-                        ),
+                        SizedBox(height: 1.h),
                         Text(AppConstant.book3,
                             style: Theme.of(context)
                                 .textTheme
@@ -259,9 +253,7 @@ class _BooksScreenState extends State<BooksScreen> {
                                   image: AssetImage(Resource.book4),
                                   fit: BoxFit.cover)),
                         ),
-                        SizedBox(
-                          height: 1.h,
-                        ),
+                        SizedBox(height: 1.h),
                         Text(AppConstant.book4,
                             style: Theme.of(context)
                                 .textTheme
@@ -286,9 +278,7 @@ class _BooksScreenState extends State<BooksScreen> {
                                   image: AssetImage(Resource.book5),
                                   fit: BoxFit.cover)),
                         ),
-                        SizedBox(
-                          height: 1.h,
-                        ),
+                        SizedBox(height: 1.h),
                         Text(AppConstant.book5,
                             style: Theme.of(context)
                                 .textTheme
@@ -302,9 +292,7 @@ class _BooksScreenState extends State<BooksScreen> {
             ],
           ),
         ),
-        SizedBox(
-          height: 6.h,
-        )
+        SizedBox(height: 6.h)
       ]),
     );
   }

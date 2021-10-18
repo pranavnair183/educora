@@ -4,7 +4,6 @@ import 'package:sizer/sizer.dart';
 import 'package:educora/utils/utils.dart';
 
 class VideoChatScreen extends StatefulWidget {
-  static const routeName = ViewRouter.videoChat;
   const VideoChatScreen({Key? key}) : super(key: key);
 
   @override
@@ -48,9 +47,7 @@ class _VideoChatScreenState extends State<VideoChatScreen> {
                   SizedBox(
                     width: 12.w,
                     child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.of(context).pop();
-                      },
+                      onPressed: () => Navigator.of(context).pop(),
                       child: Icon(
                         Icons.arrow_back,
                         size: 15.sp,
@@ -66,9 +63,7 @@ class _VideoChatScreenState extends State<VideoChatScreen> {
                           padding: EdgeInsets.symmetric(vertical: 2.h)),
                     ),
                   ),
-                  SizedBox(
-                    width: 5.w,
-                  ),
+                  SizedBox(width: 5.w),
                   const Spacer(),
                   Container(
                     padding: EdgeInsets.all(1.h),
@@ -105,9 +100,7 @@ class _VideoChatScreenState extends State<VideoChatScreen> {
                         child: Row(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              SizedBox(
-                                width: 5.w,
-                              ),
+                              SizedBox(width: 5.w),
                               ElevatedButton(
                                 onPressed: () {},
                                 child: Icon(
@@ -155,23 +148,21 @@ class _VideoChatScreenState extends State<VideoChatScreen> {
                         splashColor: Colors.transparent,
                         focusColor: Colors.transparent,
                         highlightColor: Colors.transparent,
-                        onPressed: () {},
+                        onPressed: () =>
+                            Navigator.of(context).pushNamed(ViewRouter.home),
                         child: Column(children: [
                           SvgPicture.asset(
                             Resource.homeIconVcBab,
                             height: 4.h,
                           ),
-                          SizedBox(
-                            height: 1.h,
-                          ),
+                          SizedBox(height: 1.h),
                           Text(
                             AppConstant.home,
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyText2!
-                                .copyWith(
-                                    color: AppColorData.secodaryText,
-                                    fontWeight: FontWeight.w500),
+                            style:
+                                Theme.of(context).textTheme.bodyText2!.copyWith(
+                                      color: AppColorData.primaryTxt,
+                                      fontWeight: FontWeight.w500,
+                                    ),
                           )
                         ]),
                       ),
@@ -181,15 +172,14 @@ class _VideoChatScreenState extends State<VideoChatScreen> {
                         splashColor: Colors.transparent,
                         focusColor: Colors.transparent,
                         highlightColor: Colors.transparent,
-                        onPressed: () {},
+                        onPressed: () =>
+                            Navigator.of(context).pushNamed(ViewRouter.menu),
                         child: Column(children: [
                           SvgPicture.asset(
                             Resource.menuIconVcBab,
                             height: 4.h,
                           ),
-                          SizedBox(
-                            height: 1.h,
-                          ),
+                          SizedBox(height: 1.h),
                           Text(
                             AppConstant.menu,
                             style: Theme.of(context)

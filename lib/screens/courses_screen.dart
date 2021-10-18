@@ -6,7 +6,6 @@ import '../widgets/courses_app_bar.dart';
 import '../widgets/progress_card.dart';
 
 class CourseScreen extends StatefulWidget {
-  static String routeName = ViewRouter.courses;
   const CourseScreen({Key? key}) : super(key: key);
 
   @override
@@ -58,43 +57,19 @@ class _CourseScreenState extends State<CourseScreen> {
               ),
             ),
             SliverList(
-              delegate: SliverChildListDelegate.fixed([
-                Container(
-                  padding: EdgeInsets.symmetric(vertical: 1.h, horizontal: 4.w),
-                  child: const ProgressCard(
-                    name: 'XD Prototyping',
-                    imgPath: 'assets/images/icons/xd_icon.png',
+              delegate: SliverChildListDelegate.fixed(
+                List.generate(
+                  5,
+                  (index) => Padding(
+                    padding:
+                        EdgeInsets.symmetric(vertical: 1.h, horizontal: 4.w),
+                    child: ProgressCard(
+                      name: AppConstant.coursesList[index]['name'],
+                      imgPath: AppConstant.coursesList[index]['imgPath'],
+                    ),
                   ),
                 ),
-                Container(
-                  padding: EdgeInsets.symmetric(vertical: 1.h, horizontal: 4.w),
-                  child: const ProgressCard(
-                    name: 'Sketch',
-                    imgPath: 'assets/images/icons/sketch_icon.png',
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.symmetric(vertical: 1.h, horizontal: 4.w),
-                  child: const ProgressCard(
-                    name: 'After Effects',
-                    imgPath: 'assets/images/icons/ae_icon.png',
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.symmetric(vertical: 1.h, horizontal: 4.w),
-                  child: const ProgressCard(
-                    name: 'Figma',
-                    imgPath: 'assets/images/icons/figma_icon.png',
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.symmetric(vertical: 1.h, horizontal: 4.w),
-                  child: const ProgressCard(
-                    name: 'Adobe Photoshop',
-                    imgPath: 'assets/images/icons/ps_icon.png',
-                  ),
-                ),
-              ]),
+              ),
             )
           ],
         ),

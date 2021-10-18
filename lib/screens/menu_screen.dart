@@ -1,16 +1,8 @@
-import 'package:educora/screens/class_booking_screen.dart';
-import 'package:educora/screens/login_signup_screen.dart';
-import 'package:educora/screens/my_activity_screen.dart';
-import 'package:educora/screens/popular_teachers_screen.dart';
-import 'package:educora/screens/teachers_booking_screen.dart';
-import 'package:educora/screens/timer_screen.dart';
-import 'package:educora/screens/video_chat_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import '../utils/utils.dart';
 
 class MenuScreen extends StatefulWidget {
-  static String routeName = ViewRouter.menu;
   const MenuScreen({Key? key}) : super(key: key);
 
   @override
@@ -39,9 +31,8 @@ class _MenuScreenState extends State<MenuScreen> {
             Padding(
               padding: EdgeInsets.symmetric(vertical: 1.h),
               child: InkWell(
-                onTap: () {
-                  Navigator.of(context).pushNamed(ClassBookingScreen.routeName);
-                },
+                onTap: () =>
+                    Navigator.of(context).pushNamed(ViewRouter.classBooking),
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(1.h),
@@ -71,10 +62,8 @@ class _MenuScreenState extends State<MenuScreen> {
             Padding(
               padding: EdgeInsets.symmetric(vertical: 1.h),
               child: InkWell(
-                onTap: () {
-                  Navigator.of(context)
-                      .pushNamed(PopularTeachersScreen.routeName);
-                },
+                onTap: () =>
+                    Navigator.of(context).pushNamed(ViewRouter.popularTeachers),
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(1.h),
@@ -104,10 +93,8 @@ class _MenuScreenState extends State<MenuScreen> {
             Padding(
               padding: EdgeInsets.symmetric(vertical: 1.h),
               child: InkWell(
-                onTap: () {
-                  Navigator.of(context)
-                      .pushNamed(TeachersBookingScreen.routeName);
-                },
+                onTap: () =>
+                    Navigator.of(context).pushNamed(ViewRouter.teacherBooking),
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(1.h),
@@ -137,9 +124,7 @@ class _MenuScreenState extends State<MenuScreen> {
             Padding(
               padding: EdgeInsets.symmetric(vertical: 1.h),
               child: InkWell(
-                onTap: () {
-                  Navigator.of(context).pushNamed(TimerScreen.routeName);
-                },
+                onTap: () => Navigator.of(context).pushNamed(ViewRouter.timer),
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(1.h),
@@ -169,9 +154,8 @@ class _MenuScreenState extends State<MenuScreen> {
             Padding(
               padding: EdgeInsets.symmetric(vertical: 1.h),
               child: InkWell(
-                onTap: () {
-                  Navigator.of(context).pushNamed(VideoChatScreen.routeName);
-                },
+                onTap: () =>
+                    Navigator.of(context).pushNamed(ViewRouter.videoChat),
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(1.h),
@@ -201,9 +185,8 @@ class _MenuScreenState extends State<MenuScreen> {
             Padding(
               padding: EdgeInsets.symmetric(vertical: 1.h),
               child: InkWell(
-                onTap: () {
-                  Navigator.of(context).pushNamed(MyActivityScreen.routeName);
-                },
+                onTap: () =>
+                    Navigator.of(context).pushNamed(ViewRouter.myActivity),
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(1.h),
@@ -233,9 +216,8 @@ class _MenuScreenState extends State<MenuScreen> {
             Padding(
               padding: EdgeInsets.symmetric(vertical: 1.h),
               child: InkWell(
-                onTap: () {
-                  Navigator.of(context).pushNamed(LoginSigninScreen.routeName);
-                },
+                onTap: () =>
+                    Navigator.of(context).pushNamed(ViewRouter.loginSignin),
                 child: Container(
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(1.h),

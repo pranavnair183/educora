@@ -4,7 +4,6 @@ import '../utils/utils.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class SearchScreen extends StatefulWidget {
-  static String routeName = ViewRouter.search;
   const SearchScreen({Key? key}) : super(key: key);
 
   @override

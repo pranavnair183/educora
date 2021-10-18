@@ -8,7 +8,6 @@ import 'package:intl/intl.dart';
 import '../utils/utils.dart';
 
 class ClassBookingScreen extends StatefulWidget {
-  static String routeName = ViewRouter.classBooking;
   const ClassBookingScreen({Key? key}) : super(key: key);
 
   @override
@@ -34,9 +33,7 @@ class _ClassBookingScreenState extends State<ClassBookingScreen> {
               child: IconButton(
                 icon: Icon(Icons.arrow_back,
                     size: 5.h, color: Theme.of(context).iconTheme.color),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
+                onPressed: () => Navigator.of(context).pop(),
               ));
         }),
         title: Text(AppConstant.classBooking,
@@ -71,18 +68,14 @@ class _ClassBookingScreenState extends State<ClassBookingScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(
-              height: 2.h,
-            ),
+            SizedBox(height: 2.h),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 6.w),
               child: CustomCalendar(
                 updateDate: updateDate,
               ),
             ),
-            SizedBox(
-              height: 1.h,
-            ),
+            SizedBox(height: 1.h),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 5.w),
               child: Row(
@@ -95,9 +88,7 @@ class _ClassBookingScreenState extends State<ClassBookingScreen> {
                 ],
               ),
             ),
-            SizedBox(
-              height: 2.h,
-            ),
+            SizedBox(height: 2.h),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 5.w),
               child: Image.asset(Resource.cbFooter, height: 130.sp),
@@ -134,9 +125,7 @@ class _ClassBookingScreenState extends State<ClassBookingScreen> {
             Padding(
               padding: EdgeInsets.symmetric(vertical: 1.h, horizontal: 5.w),
               child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
+                  onPressed: () => Navigator.of(context).pop(),
                   style: Theme.of(context).elevatedButtonTheme.style,
                   child: Padding(
                     padding: EdgeInsets.symmetric(horizontal: 3.w),
@@ -153,9 +142,7 @@ class _ClassBookingScreenState extends State<ClassBookingScreen> {
                     ),
                   )),
             ),
-            SizedBox(
-              height: 2.h,
-            )
+            SizedBox(height: 2.h)
           ],
         ),
       ),

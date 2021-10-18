@@ -1,13 +1,16 @@
 import 'package:educora/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
-import '../screens/course_detail_screen.dart';
 
 class TsTab extends StatefulWidget {
-  final List<dynamic>? badgeList;
-  const TsTab({Key? key, this.name, this.imgPath, this.badgeList})
-      : super(key: key);
+  const TsTab({
+    Key? key,
+    this.name,
+    this.imgPath,
+    this.badgeList,
+  }) : super(key: key);
 
+  final List<dynamic>? badgeList;
   final String? name;
   final String? imgPath;
 
@@ -19,9 +22,7 @@ class _TsTabState extends State<TsTab> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
-        Navigator.of(context).pushNamed(CourseDetailScreen.routeName);
-      },
+      onTap: () => Navigator.of(context).pushNamed(ViewRouter.courseDetail),
       child: Container(
         decoration: BoxDecoration(
             color: AppColorData.progressCardBg,
@@ -34,9 +35,7 @@ class _TsTabState extends State<TsTab> {
                 widget.imgPath!,
                 height: 5.h,
               ),
-              SizedBox(
-                width: 4.w,
-              ),
+              SizedBox(width: 4.w),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -84,9 +83,7 @@ class _TsTabState extends State<TsTab> {
                         .bodyText1!
                         .copyWith(color: Colors.black12),
                   ),
-                  SizedBox(
-                    height: 2.sp,
-                  ),
+                  SizedBox(height: 2.sp),
                   Icon(
                     Icons.play_arrow_rounded,
                     size: 25.sp,

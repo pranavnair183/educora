@@ -5,7 +5,6 @@ import '../utils/utils.dart';
 import 'package:educora/widgets/chart.dart';
 
 class MyActivityScreen extends StatefulWidget {
-  static const routeName = ViewRouter.myActivity;
   const MyActivityScreen({Key? key}) : super(key: key);
 
   @override
@@ -45,11 +44,9 @@ class _MyActivityScreenState extends State<MyActivityScreen> {
                     children: [
                       Expanded(
                         child: InkWell(
-                          onTap: () {
-                            setState(() {
-                              _isDay = true;
-                            });
-                          },
+                          onTap: () => setState(() {
+                            _isDay = true;
+                          }),
                           child: Container(
                             decoration: BoxDecoration(
                               color: (_isDay == true)
@@ -76,11 +73,9 @@ class _MyActivityScreenState extends State<MyActivityScreen> {
                       ),
                       Expanded(
                         child: InkWell(
-                          onTap: () {
-                            setState(() {
-                              _isDay = false;
-                            });
-                          },
+                          onTap: () => setState(() {
+                            _isDay = false;
+                          }),
                           child: Container(
                             decoration: BoxDecoration(
                               color: (_isDay == false)
@@ -112,9 +107,7 @@ class _MyActivityScreenState extends State<MyActivityScreen> {
               )
             ],
           ),
-          SizedBox(
-            height: 2.h,
-          ),
+          SizedBox(height: 2.h),
           Padding(
             padding: EdgeInsets.all(1.h),
             child: Row(
@@ -142,9 +135,7 @@ class _MyActivityScreenState extends State<MyActivityScreen> {
                                 height: 2.h,
                               ),
                             ),
-                            SizedBox(
-                              width: 2.3.w,
-                            ),
+                            SizedBox(width: 2.3.w),
                             Text(
                               AppConstant.classCompleted,
                               style: Theme.of(context)
@@ -203,9 +194,7 @@ class _MyActivityScreenState extends State<MyActivityScreen> {
                                 size: 15.sp,
                               ),
                             ),
-                            SizedBox(
-                              width: 2.3.w,
-                            ),
+                            SizedBox(width: 2.3.w),
                             Text(
                               AppConstant.timeDurationTxt,
                               style: Theme.of(context)
@@ -237,9 +226,7 @@ class _MyActivityScreenState extends State<MyActivityScreen> {
                                         color: Colors.blue[100],
                                       ),
                                 ),
-                                SizedBox(
-                                  width: 2.w,
-                                ),
+                                SizedBox(width: 2.w),
                                 Text(
                                   '46',
                                   style: Theme.of(context)

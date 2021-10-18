@@ -1,6 +1,4 @@
 import 'dart:ui';
-
-import 'package:educora/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sizer/sizer.dart';
@@ -8,7 +6,6 @@ import 'package:educora/utils/utils.dart';
 import '../widgets/dashed_painter.dart';
 
 class TrackOrderScreen extends StatefulWidget {
-  static const routeName = ViewRouter.trackOrder;
   const TrackOrderScreen({Key? key}) : super(key: key);
 
   @override
@@ -30,9 +27,7 @@ class _TrackOrderScreenState extends State<TrackOrderScreen> {
                   size: 5.h,
                   color: Colors.black,
                 ),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
+                onPressed: () => Navigator.of(context).pop(),
               ));
         }),
         title: Text(
@@ -45,9 +40,7 @@ class _TrackOrderScreenState extends State<TrackOrderScreen> {
         padding: EdgeInsets.symmetric(horizontal: 6.w),
         child: Column(
           children: [
-            SizedBox(
-              height: 1.h,
-            ),
+            SizedBox(height: 1.h),
             Row(
               children: [
                 Expanded(
@@ -66,20 +59,16 @@ class _TrackOrderScreenState extends State<TrackOrderScreen> {
                             AppConstant.estimatedDeliveryTime,
                             style:
                                 Theme.of(context).textTheme.headline6!.copyWith(
-                                      color: Colors.black12,
+                                      color: AppColorData.secodaryText,
                                       fontWeight: FontWeight.w700,
                                     ),
                           ),
-                          SizedBox(
-                            height: 1.h,
-                          ),
+                          SizedBox(height: 1.h),
                           Text(
                             AppConstant.fourToSixDays,
                             style: Theme.of(context).textTheme.headline2,
                           ),
-                          SizedBox(
-                            height: 1.h,
-                          ),
+                          SizedBox(height: 1.h),
                           Padding(
                             padding: EdgeInsets.only(left: 1.w),
                             child: Container(
@@ -99,9 +88,7 @@ class _TrackOrderScreenState extends State<TrackOrderScreen> {
                                         color: AppColorData.secondaryIcon,
                                         size: 15.sp,
                                       ),
-                                      SizedBox(
-                                        width: 2.w,
-                                      ),
+                                      SizedBox(width: 2.w),
                                       Text(
                                         AppConstant.deliveryDate,
                                         style: Theme.of(context)
@@ -135,9 +122,7 @@ class _TrackOrderScreenState extends State<TrackOrderScreen> {
                       style: Theme.of(context).textTheme.headline5,
                     ),
                   ]),
-                  SizedBox(
-                    height: 2.h,
-                  ),
+                  SizedBox(height: 2.h),
                   Column(
                     children: [
                       Row(
@@ -155,9 +140,7 @@ class _TrackOrderScreenState extends State<TrackOrderScreen> {
                               ),
                             ),
                           ),
-                          SizedBox(
-                            width: 2.w,
-                          ),
+                          SizedBox(width: 2.w),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -168,9 +151,7 @@ class _TrackOrderScreenState extends State<TrackOrderScreen> {
                                     .headline5!
                                     .copyWith(fontWeight: FontWeight.w700),
                               ),
-                              SizedBox(
-                                height: 1.7.h,
-                              ),
+                              SizedBox(height: 1.7.h),
                               Text(
                                 AppConstant.arrivingBy,
                                 style: Theme.of(context)
@@ -186,9 +167,7 @@ class _TrackOrderScreenState extends State<TrackOrderScreen> {
                       ),
                       Row(
                         children: [
-                          SizedBox(
-                            width: 3.5.h,
-                          ),
+                          SizedBox(width: 3.5.h),
                           CustomPaint(
                             size: Size(1, 5.h),
                             painter: DashedLineVerticalPainter(),
@@ -210,9 +189,7 @@ class _TrackOrderScreenState extends State<TrackOrderScreen> {
                               ),
                             ),
                           ),
-                          SizedBox(
-                            width: 2.w,
-                          ),
+                          SizedBox(width: 2.w),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -225,9 +202,7 @@ class _TrackOrderScreenState extends State<TrackOrderScreen> {
                                         fontWeight: FontWeight.w700,
                                         color: Colors.grey[700]),
                               ),
-                              SizedBox(
-                                height: 1.7.h,
-                              ),
+                              SizedBox(height: 1.7.h),
                               Text(
                                 AppConstant.dispatchedDate,
                                 style: Theme.of(context)
@@ -241,9 +216,7 @@ class _TrackOrderScreenState extends State<TrackOrderScreen> {
                       ),
                       Row(
                         children: [
-                          SizedBox(
-                            width: 3.5.h,
-                          ),
+                          SizedBox(width: 3.5.h),
                           CustomPaint(
                             size: Size(1, 5.h),
                             painter: DashedLineVerticalPainter(),
@@ -265,9 +238,7 @@ class _TrackOrderScreenState extends State<TrackOrderScreen> {
                               ),
                             ),
                           ),
-                          SizedBox(
-                            width: 2.w,
-                          ),
+                          SizedBox(width: 2.w),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -280,9 +251,7 @@ class _TrackOrderScreenState extends State<TrackOrderScreen> {
                                         fontWeight: FontWeight.w700,
                                         color: Colors.grey[700]),
                               ),
-                              SizedBox(
-                                height: 1.7.h,
-                              ),
+                              SizedBox(height: 1.7.h),
                               Text(
                                 AppConstant.orderPlacedDate,
                                 style: Theme.of(context)
@@ -306,9 +275,8 @@ class _TrackOrderScreenState extends State<TrackOrderScreen> {
               children: [
                 Expanded(
                   child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.of(context).pushNamed(HomeScreen.routeName);
-                      },
+                      onPressed: () =>
+                          Navigator.of(context).pushNamed(ViewRouter.home),
                       style: Theme.of(context)
                           .elevatedButtonTheme
                           .style!
@@ -332,9 +300,7 @@ class _TrackOrderScreenState extends State<TrackOrderScreen> {
                 ),
               ],
             ),
-            SizedBox(
-              height: 2.h,
-            )
+            SizedBox(height: 2.h),
           ],
         ),
       ),
