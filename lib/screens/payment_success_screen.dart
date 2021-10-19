@@ -102,7 +102,7 @@ class _PaymentSuccessScreenState extends State<PaymentSuccessScreen> {
                 padding: EdgeInsets.symmetric(horizontal: 7.w),
                 child: ElevatedButton(
                     onPressed: () =>
-                        Navigator.of(context).pushNamed(ViewRouter.trackOrder),
+                        Navigator.pushNamed(context, ViewRouter.trackOrder),
                     style: Theme.of(context)
                         .elevatedButtonTheme
                         .style!

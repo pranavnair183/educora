@@ -22,7 +22,7 @@ class _TsTabState extends State<TsTab> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => Navigator.of(context).pushNamed(ViewRouter.courseDetail),
+      onTap: () => Navigator.pushNamed(context, ViewRouter.courseDetail),
       child: Container(
         decoration: BoxDecoration(
             color: AppColorData.progressCardBg,

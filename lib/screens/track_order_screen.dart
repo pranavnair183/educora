@@ -37,7 +37,7 @@ class _TrackOrderScreenState extends State<TrackOrderScreen> {
         centerTitle: true,
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 6.w),
+        padding: EdgeInsets.symmetric(horizontal: 5.w),
         child: Column(
           children: [
             SizedBox(height: 1.h),
@@ -276,7 +276,7 @@ class _TrackOrderScreenState extends State<TrackOrderScreen> {
                 Expanded(
                   child: ElevatedButton(
                       onPressed: () =>
-                          Navigator.of(context).pushNamed(ViewRouter.home),
+                          Navigator.pushNamed(context, ViewRouter.home),
                       style: Theme.of(context)
                           .elevatedButtonTheme
                           .style!

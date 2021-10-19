@@ -32,7 +32,7 @@ class _MenuScreenState extends State<MenuScreen> {
               padding: EdgeInsets.symmetric(vertical: 1.h),
               child: InkWell(
                 onTap: () =>
-                    Navigator.of(context).pushNamed(ViewRouter.classBooking),
+                    Navigator.pushNamed(context, ViewRouter.classBooking),
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(1.h),
@@ -63,7 +63,7 @@ class _MenuScreenState extends State<MenuScreen> {
               padding: EdgeInsets.symmetric(vertical: 1.h),
               child: InkWell(
                 onTap: () =>
-                    Navigator.of(context).pushNamed(ViewRouter.popularTeachers),
+                    Navigator.pushNamed(context, ViewRouter.popularTeachers),
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(1.h),
@@ -94,7 +94,7 @@ class _MenuScreenState extends State<MenuScreen> {
               padding: EdgeInsets.symmetric(vertical: 1.h),
               child: InkWell(
                 onTap: () =>
-                    Navigator.of(context).pushNamed(ViewRouter.teacherBooking),
+                    Navigator.pushNamed(context, ViewRouter.teacherBooking),
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(1.h),
@@ -124,7 +124,7 @@ class _MenuScreenState extends State<MenuScreen> {
             Padding(
               padding: EdgeInsets.symmetric(vertical: 1.h),
               child: InkWell(
-                onTap: () => Navigator.of(context).pushNamed(ViewRouter.timer),
+                onTap: () => Navigator.pushNamed(context, ViewRouter.timer),
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(1.h),
@@ -154,8 +154,7 @@ class _MenuScreenState extends State<MenuScreen> {
             Padding(
               padding: EdgeInsets.symmetric(vertical: 1.h),
               child: InkWell(
-                onTap: () =>
-                    Navigator.of(context).pushNamed(ViewRouter.videoChat),
+                onTap: () => Navigator.pushNamed(context, ViewRouter.videoChat),
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(1.h),
@@ -186,7 +185,7 @@ class _MenuScreenState extends State<MenuScreen> {
               padding: EdgeInsets.symmetric(vertical: 1.h),
               child: InkWell(
                 onTap: () =>
-                    Navigator.of(context).pushNamed(ViewRouter.myActivity),
+                    Navigator.pushNamed(context, ViewRouter.myActivity),
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(1.h),
@@ -217,7 +216,7 @@ class _MenuScreenState extends State<MenuScreen> {
               padding: EdgeInsets.symmetric(vertical: 1.h),
               child: InkWell(
                 onTap: () =>
-                    Navigator.of(context).pushNamed(ViewRouter.loginSignin),
+                    Navigator.pushNamed(context, ViewRouter.loginSignin),
                 child: Container(
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(1.h),

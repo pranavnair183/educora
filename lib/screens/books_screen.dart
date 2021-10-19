@@ -32,7 +32,7 @@ class _BooksScreenState extends State<BooksScreen> {
       );
     }
     return InkWell(
-      onTap: () => Navigator.of(context).pushNamed(ViewRouter.bookDetail),
+      onTap: () => Navigator.pushNamed(context, ViewRouter.bookDetail),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(2.h),
         child: Stack(children: [

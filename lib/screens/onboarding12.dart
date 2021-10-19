@@ -206,8 +206,10 @@ class _Ob1State extends State<Ob1> {
                         children: [
                           Expanded(
                             child: ElevatedButton(
-                                onPressed: () => Navigator.of(context)
-                                    .pushNamed('/login_signin'),
+                                onPressed: () => Navigator.pushNamed(
+                                      context,
+                                      ViewRouter.loginSignin,
+                                    ),
                                 style:
                                     Theme.of(context).elevatedButtonTheme.style,
                                 child: Padding(
@@ -235,8 +237,10 @@ class _Ob1State extends State<Ob1> {
                         children: [
                           Expanded(
                             child: ElevatedButton(
-                              onPressed: () => Navigator.of(context)
-                                  .pushNamed('/login_signin'),
+                              onPressed: () => Navigator.pushNamed(
+                                context,
+                                ViewRouter.loginSignin,
+                              ),
                               style: ButtonStyle(
                                 shape: MaterialStateProperty.resolveWith<
                                     OutlinedBorder>(

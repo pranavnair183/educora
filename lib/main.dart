@@ -1,22 +1,8 @@
-import 'package:educora/screens/payment_success_screen.dart';
-import 'package:educora/screens/video_chat_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:overlay_support/overlay_support.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:sizer/sizer.dart';
-import './screens/onboarding.dart';
-import 'screens/login_signup_screen.dart';
-import 'screens/course_detail_screen.dart';
-import 'screens/popular_teachers_screen.dart';
-import 'screens/courses_screen.dart';
-import 'screens/class_booking_screen.dart';
-import 'screens/teachers_booking_screen.dart';
-import 'screens/timer_screen.dart';
-import 'screens/pages.dart';
-import 'screens/checkout_screen.dart';
-import 'screens/scanner_screen.dart';
-import 'screens/track_order_screen.dart';
 import 'package:flutter/foundation.dart';
 import 'package:educora/utils/utils.dart';
 
@@ -113,40 +99,8 @@ class MyApp extends StatelessWidget {
               ),
             ),
           ),
-          initialRoute: '/onboarding',
-          routes: {
-            ViewRouter.onBoarding: (ctx) => const OnboardingScreen(),
-            ViewRouter.home: (ctx) => const Pages(
-                  currentIndex: 0,
-                ),
-            ViewRouter.books: (ctx) => const Pages(
-                  currentIndex: 1,
-                ),
-            ViewRouter.search: (ctx) => const Pages(
-                  currentIndex: 2,
-                ),
-            ViewRouter.menu: (ctx) => const Pages(
-                  currentIndex: 3,
-                ),
-            ViewRouter.loginSignin: (ctx) => const LoginSigninScreen(),
-            ViewRouter.courseDetail: (ctx) => const CourseDetailScreen(),
-            ViewRouter.popularTeachers: (ctx) => const PopularTeachersScreen(),
-            ViewRouter.courses: (ctx) => const CourseScreen(),
-            ViewRouter.classBooking: (ctx) => const ClassBookingScreen(),
-            ViewRouter.teacherBooking: (ctx) => const TeachersBookingScreen(),
-            ViewRouter.timer: (ctx) => const TimerScreen(),
-            ViewRouter.bookDetail: (ctx) => const Pages(
-                  currentIndex: 4,
-                ),
-            ViewRouter.checkout: (ctx) => const CheckoutScreen(),
-            ViewRouter.scanner: (ctx) => const ScannerScreen(),
-            ViewRouter.paymentSuccess: (ctx) => const PaymentSuccessScreen(),
-            ViewRouter.trackOrder: (ctx) => const TrackOrderScreen(),
-            ViewRouter.videoChat: (ctx) => const VideoChatScreen(),
-            ViewRouter.myActivity: (ctx) => const Pages(
-                  currentIndex: 6,
-                ),
-          },
+          initialRoute: ViewRouter.onBoarding,
+          onGenerateRoute: ViewRouter.generateRoute,
         );
       }),
     );

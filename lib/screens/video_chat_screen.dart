@@ -149,7 +149,7 @@ class _VideoChatScreenState extends State<VideoChatScreen> {
                         focusColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onPressed: () =>
-                            Navigator.of(context).pushNamed(ViewRouter.home),
+                            Navigator.pushNamed(context, ViewRouter.home),
                         child: Column(children: [
                           SvgPicture.asset(
                             Resource.homeIconVcBab,
@@ -173,7 +173,7 @@ class _VideoChatScreenState extends State<VideoChatScreen> {
                         focusColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onPressed: () =>
-                            Navigator.of(context).pushNamed(ViewRouter.menu),
+                            Navigator.pushNamed(context, ViewRouter.menu),
                         child: Column(children: [
                           SvgPicture.asset(
                             Resource.menuIconVcBab,

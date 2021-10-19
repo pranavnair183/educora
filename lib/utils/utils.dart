@@ -1,6 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:educora/models/user.dart';
-
+import 'package:educora/screens/payment_success_screen.dart';
+import 'package:educora/screens/video_chat_screen.dart';
+import '../screens/onboarding.dart';
+import '../screens/login_signup_screen.dart';
+import '../screens/course_detail_screen.dart';
+import '../screens/popular_teachers_screen.dart';
+import '../screens/courses_screen.dart';
+import '../screens/class_booking_screen.dart';
+import '../screens/teachers_booking_screen.dart';
+import '../screens/timer_screen.dart';
+import '../screens/pages.dart';
+import '../screens/checkout_screen.dart';
+import '../screens/scanner_screen.dart';
+import '../screens/track_order_screen.dart';
 import 'package:sizer/sizer.dart';
 
 class AppColorData {
@@ -25,7 +38,7 @@ class AppColorData {
   static const Color coursesHeaderBg = Color.fromRGBO(38, 32, 44, 1);
   static const Color homeHeaderBg = Color.fromRGBO(38, 32, 44, 1);
   static const Color loginHeaderBg = Color.fromRGBO(242, 242, 242, 1);
-  static Color secodaryText = Colors.grey[900]!;
+  static Color secodaryText = Colors.grey[700]!;
   static const Color courseTotalTimeBg = Color.fromRGBO(195, 210, 250, 1);
   static const Color paymentSuccessPb1 = Color.fromRGBO(253, 85, 186, 1);
   static const Color paymentSuccessDoneBg1 = Color.fromRGBO(208, 208, 208, 0.1);
@@ -435,6 +448,89 @@ class ViewRouter {
   static const timer = '/timer';
   static const trackOrder = '/track_order';
   static const videoChat = '/video_chat';
+
+  static Route<dynamic>? generateRoute(RouteSettings settings) {
+    switch (settings.name) {
+      case home:
+        return MaterialPageRoute(
+          builder: (_) => const Pages(
+            currentIndex: 0,
+          ),
+        );
+      case bookDetail:
+        return MaterialPageRoute(
+          builder: (_) => const Pages(
+            currentIndex: 4,
+          ),
+        );
+      case books:
+        return MaterialPageRoute(
+          builder: (_) => const Pages(
+            currentIndex: 1,
+          ),
+        );
+      case onBoarding:
+        return MaterialPageRoute(
+          builder: (_) => const OnboardingScreen(),
+        );
+      case search:
+        return MaterialPageRoute(
+          builder: (_) => const Pages(
+            currentIndex: 2,
+          ),
+        );
+      case menu:
+        return MaterialPageRoute(
+          builder: (_) => const Pages(
+            currentIndex: 3,
+          ),
+        );
+      case loginSignin:
+        return MaterialPageRoute(builder: (_) => const LoginSigninScreen());
+      case courseDetail:
+        return MaterialPageRoute(builder: (_) => const CourseDetailScreen());
+      case popularTeachers:
+        return MaterialPageRoute(builder: (_) => const PopularTeachersScreen());
+      case courses:
+        return MaterialPageRoute(builder: (_) => const CourseScreen());
+      case classBooking:
+        return MaterialPageRoute(builder: (_) => const ClassBookingScreen());
+      case teacherBooking:
+        return MaterialPageRoute(
+          builder: (_) => const TeachersBookingScreen(),
+        );
+      case timer:
+        return MaterialPageRoute(
+          builder: (_) => const TimerScreen(),
+        );
+      case checkout:
+        return MaterialPageRoute(
+          builder: (_) => const CheckoutScreen(),
+        );
+      case scanner:
+        return MaterialPageRoute(
+          builder: (_) => const ScannerScreen(),
+        );
+      case paymentSuccess:
+        return MaterialPageRoute(
+          builder: (_) => const PaymentSuccessScreen(),
+        );
+      case trackOrder:
+        return MaterialPageRoute(
+          builder: (_) => const TrackOrderScreen(),
+        );
+      case videoChat:
+        return MaterialPageRoute(
+          builder: (_) => const VideoChatScreen(),
+        );
+      case myActivity:
+        return MaterialPageRoute(
+          builder: (_) => const Pages(
+            currentIndex: 6,
+          ),
+        );
+    }
+  }
 }
 
 ThemeData appTheme = ThemeData(

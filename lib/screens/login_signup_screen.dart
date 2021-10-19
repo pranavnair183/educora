@@ -166,7 +166,7 @@ class _LoginSigninScreenState extends State<LoginSigninScreen> {
                                       .headline6!
                                       .copyWith(
                                         color: AppColorData.secodaryText,
-                                        fontWeight: FontWeight.w600,
+                                        fontWeight: FontWeight.w400,
                                       ),
                                   textAlign: TextAlign.center,
                                 )
@@ -194,7 +194,7 @@ class _LoginSigninScreenState extends State<LoginSigninScreen> {
                           SizedBox(height: 5.h),
                           ElevatedButton(
                               onPressed: () =>
-                                  Navigator.of(context).pushNamed('/'),
+                                  Navigator.pushNamed(context, ViewRouter.home),
                               style:
                                   Theme.of(context).elevatedButtonTheme.style,
                               child: Padding(

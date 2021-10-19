@@ -55,8 +55,7 @@ class _DrawerMenuState extends State<DrawerMenu> {
             ),
             SizedBox(height: 15.h),
             InkWell(
-              onTap: () =>
-                  Navigator.of(context).pushNamed(ViewRouter.myActivity),
+              onTap: () => Navigator.pushNamed(context, ViewRouter.myActivity),
               child: Row(
                 children: [
                   SvgPicture.asset(
@@ -76,7 +75,7 @@ class _DrawerMenuState extends State<DrawerMenu> {
             SizedBox(height: 4.h),
             InkWell(
               onTap: () =>
-                  Navigator.of(context).pushNamed(ViewRouter.teacherBooking),
+                  Navigator.pushNamed(context, ViewRouter.teacherBooking),
               child: Row(
                 children: [
                   SvgPicture.asset(
@@ -96,7 +95,7 @@ class _DrawerMenuState extends State<DrawerMenu> {
             SizedBox(height: 4.h),
             InkWell(
               onTap: () =>
-                  Navigator.of(context).pushNamed(ViewRouter.classBooking),
+                  Navigator.pushNamed(context, ViewRouter.classBooking),
               child: Row(
                 children: [
                   SvgPicture.asset(
@@ -115,7 +114,7 @@ class _DrawerMenuState extends State<DrawerMenu> {
             ),
             SizedBox(height: 4.h),
             InkWell(
-              onTap: () => Navigator.of(context).pushNamed(ViewRouter.courses),
+              onTap: () => Navigator.pushNamed(context, ViewRouter.courses),
               child: Row(
                 children: [
                   SvgPicture.asset(
@@ -134,7 +133,7 @@ class _DrawerMenuState extends State<DrawerMenu> {
             ),
             SizedBox(height: 4.h),
             InkWell(
-              onTap: () => Navigator.of(context).pushNamed(ViewRouter.timer),
+              onTap: () => Navigator.pushNamed(context, ViewRouter.timer),
               child: Row(
                 children: [
                   SvgPicture.asset(
@@ -153,8 +152,7 @@ class _DrawerMenuState extends State<DrawerMenu> {
             ),
             SizedBox(height: 4.h),
             InkWell(
-              onTap: () =>
-                  Navigator.of(context).pushNamed(ViewRouter.videoChat),
+              onTap: () => Navigator.pushNamed(context, ViewRouter.videoChat),
               child: Row(
                 children: [
                   SvgPicture.asset(

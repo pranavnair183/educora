@@ -100,7 +100,7 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
                           padding: MaterialStateProperty.resolveWith(
                               (states) => EdgeInsets.symmetric(vertical: 3.h))),
                       onPressed: () =>
-                          Navigator.of(context).pushNamed(ViewRouter.checkout),
+                          Navigator.pushNamed(context, ViewRouter.checkout),
                       child: Text(
                         AppConstant.buyAudio,
                         style: Theme.of(context).textTheme.headline6!.copyWith(
